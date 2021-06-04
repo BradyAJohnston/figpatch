@@ -1,0 +1,18 @@
+Package: patchfig
+Title: Easily Arrange Images with Patchwork Alongside ggplot2 Figures.
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Brady",
+           family = "Johnston",
+           role = c("aut", "cre"),
+           email = "brady.johnston@me.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package provides a few simple helper functions for assembling 
+  figures using {patchwork} and including simple images. For some figures, images 
+  need to be included alongside plots. To do so, patchfig supplies several helper
+  functions to create ggplot objects from images, to be used by patchwork.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
