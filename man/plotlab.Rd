@@ -8,9 +8,12 @@ plotlab(
   plot,
   lab,
   pos = "topleft",
+  colour = NULL,
+  alpha = NULL,
   hjust = 0,
   vjust = 1,
   fontsize = 20,
+  fontface = NULL,
   fontfamily = NULL
 )
 }
@@ -21,11 +24,17 @@ plotlab(
 
 \item{pos}{Position of label (Default 'topleft').}
 
+\item{colour}{Colour of label text.}
+
+\item{alpha}{Alpha of label text.}
+
 \item{hjust}{hjust of plot label.}
 
 \item{vjust}{vjust of plot label.}
 
-\item{fontsize}{Fontsize of plot label.}
+\item{fontsize}{Fontsize of laebl (in points).}
+
+\item{fontface}{The font face (bolt, italic, ...)}
 
 \item{fontfamily}{Fontfamily of plot label.}
 }
