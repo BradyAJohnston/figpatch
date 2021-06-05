@@ -1,25 +1,25 @@
-#' img2plot
-#' Convert image to ggplot object with given aspect ratio.
+#' fig
+#' Read image and convert to ggplot object with given aspect ratio.
 #'
-#' @param path Path to image file. 
+#' @param path Path to image file.
 #' @param AR Aspect ratio. 'default' inherits image's aspect ratio.
 #' @param colour Colour of rectangle around image. (Uses plot.background in theme)
-#' @param fill Fill of rectange around image. (uses plot.background in theme)
+#' @param fill Fill of rectangle around image. (uses plot.background in theme)
 #'
 #' @return
 #' @export
 #'
 #' @examples
-img2plot <-
+fig <-
   function(path,
            AR = "default",
            colour = NULL,
            fill = NULL) {
     img <- magick::image_read(path = path)
-    
+
     x_dim <- magick::image_info(img)$width
     y_dim <- magick::image_info(img)$height
-    
+
     if (AR == "default") {
       AR <- y_dim / x_dim
     } else if (AR == "resize") {
@@ -27,7 +27,7 @@ img2plot <-
     } else if (!is.numeric(AR)) {
       stop("Aspect ratio (AR) must be either 'default', or a valid numeric number.")
     }
-    
+
     ggplot2::ggplot() +
       ggplot2::annotation_custom(grid::rasterGrob(
         img,
@@ -36,12 +36,14 @@ img2plot <-
       )) +
       ggplot2::theme(
         aspect.ratio = AR,
-        plot.background = ggplot2::element_rect(colour = colour,
-                                                fill = fill)
+        plot.background = ggplot2::element_rect(
+          colour = colour,
+          fill = fill
+        )
       )
   }
 
-#' Label img2plot plot.
+#' Label fig plot.
 #'
 #' @param plot Plot from img2plot function.
 #' @param lab Label to add to plot.
@@ -58,7 +60,7 @@ img2plot <-
 #' @export
 #'
 #' @examples
-plotlab <-
+figlab <-
   function(plot,
            lab,
            pos = "topleft",
@@ -71,16 +73,16 @@ plotlab <-
            fontfamily = NULL) {
     xpos <- c("topleft" = 0.05)
     ypos <- c("topleft" = 0.95)
-    
+
     if ("aspect.ratio" %in% names(plot$theme)) {
       AR <- plot$theme$aspect.ratio
     } else {
       AR <- 1
     }
-    
+
     xpos <- xpos[pos] * AR
     ypos <- ypos[pos]
-    
+
     plot + ggplot2::annotation_custom(
       grid::textGrob(
         label = lab,
@@ -88,11 +90,13 @@ plotlab <-
         y = grid::unit(ypos, "npc"),
         hjust = hjust,
         vjust = vjust,
-        gp = grid::gpar(fontsize = fontsize,
-                        fontfamily = fontfamily,
-                        fontface = fontface,
-                        col = colour, 
-                        alpha = alpha)
+        gp = grid::gpar(
+          fontsize = fontsize,
+          fontfamily = fontfamily,
+          fontface = fontface,
+          col = colour,
+          alpha = alpha
+        )
       )
     )
   }

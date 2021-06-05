@@ -34,11 +34,13 @@ library(ggplot2)
 library(patchwork)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+To use images inside of a patchwork object, they need to be converted to
+a `{ggplot}` object via `fig()`. Once converted, you can assemble the
+`{patchwork}` as you would otherwise with `+ / - * &` or
+`patchwork::wrap_plots()`.
 
 ``` r
-img <- img2plot("data/fig.png")
+img <- fig("data/fig.png")
 plt <- ggplot(mtcars) + 
   aes(mpg, cyl) + 
   geom_point()
@@ -47,7 +49,7 @@ pat <- patchwork::wrap_plots(img, plt)
 pat
 ```
 
-<img src="man/figures/README-cars-1.png" width="100%" />
+<img src="man/figures/README-figpatch-1.png" width="100%" />
 
 Depending on how you want things labelled, the patchwork labelling not
 arrange things how you would like.
@@ -62,7 +64,7 @@ pat + plot_annotation(tag_levels = "A",
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 ``` r
-wrap_plots(list(figpatch::plotlab(img, "(A)", 
+wrap_plots(list(figpatch::figlab(img, "(A)", 
                              fontsize = 16, 
                              colour = "gray30"), plt))
 ```
@@ -70,28 +72,11 @@ wrap_plots(list(figpatch::plotlab(img, "(A)",
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 ``` r
-pat <- wrap_plots(list(plt, plotlab(img, "(A)", colour = "gray20"),plt,  plotlab(img, "(B)", colour = "gray20")))
-pat$patches$plots
-#> [[1]]
-```
-
-<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
-
-    #> 
-    #> [[2]]
-
-<img src="man/figures/README-unnamed-chunk-3-3.png" width="100%" />
-
-    #> 
-    #> [[3]]
-
-<img src="man/figures/README-unnamed-chunk-3-4.png" width="100%" />
-
-``` r
+pat <- wrap_plots(list(plt, figlab(img, "(A)", colour = "gray20"),plt,  figlab(img, "(B)", colour = "gray20")))
 pat
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-5.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
 
 ``` r
 wrap_plots(list(img, img, img, img, img, img, img, img, img), nrow = 3) + 

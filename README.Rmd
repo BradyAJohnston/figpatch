@@ -46,10 +46,12 @@ library(ggplot2)
 library(patchwork)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+To use images inside of a patchwork object, they need to be converted to a 
+`{ggplot}` object via `fig()`. Once converted, you can assemble the `{patchwork}` 
+as you would otherwise with `+ / - * &` or `patchwork::wrap_plots()`.
 
-```{r cars}
-img <- img2plot("data/fig.png")
+```{r figpatch}
+img <- fig("data/fig.png")
 plt <- ggplot(mtcars) + 
   aes(mpg, cyl) + 
   geom_point()
@@ -68,12 +70,11 @@ pat + plot_annotation(tag_levels = "A",
 ```
 
 ```{r}
-wrap_plots(list(figpatch::plotlab(img, "(A)", 
+wrap_plots(list(figpatch::figlab(img, "(A)", 
                              fontsize = 16, 
                              colour = "gray30"), plt))
 
-pat <- wrap_plots(list(plt, plotlab(img, "(A)", colour = "gray20"),plt,  plotlab(img, "(B)", colour = "gray20")))
-pat$patches$plots
+pat <- wrap_plots(list(plt, figlab(img, "(A)", colour = "gray20"),plt,  figlab(img, "(B)", colour = "gray20")))
 pat
 ```
 
