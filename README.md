@@ -126,13 +126,11 @@ figwrap(list(img, img, img), "A", prefix = "(", suffix = ")")
 
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-Larger figures again.
-
 ``` r
 knitr::opts_chunk$set(fig.height = 5, fig.width = 7)
 ```
 
-Lots of figures assembled.
+Assembling lots of figures.
 
 ``` r
 figs <- lapply(1:9, function(x) img)
@@ -141,3 +139,24 @@ figwrap(figs, nrow = 3, labelling = 1, suffix = ")")
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+## Adding specific sub-plot text.
+
+At the end of the day, each of the figs is just a `ggplot()` object, so
+axis labels can be used to add text below and above. Designs in
+`patchwork` can also be used to arrange the figures specifically.
+
+``` r
+img1 <- img1 + labs(x = "A label below the fig.")
+
+img2 <- img2 + labs(x = "A label below the fig.") + 
+  theme(axis.title.x = element_text(face = "italic"))
+  
+
+design <- "AB
+           CC"
+
+patchwork::wrap_plots(img1, img2, img3, design = design)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
