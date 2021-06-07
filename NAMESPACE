@@ -2,3 +2,4 @@
 
 export(fig)
 export(figlab)
+export(figwrap)

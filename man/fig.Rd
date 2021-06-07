@@ -2,8 +2,9 @@
 % Please edit documentation in R/figpatch.R
 \name{fig}
 \alias{fig}
-\title{fig
-Read image and convert to ggplot object with given aspect ratio.}
+\title{Create a fig.
+Read image and convert to ggplot object, for use with other ggplot objects
+when assembling with the \code{{patchwork}} package.}
 \usage{
 fig(path, AR = "default", colour = NULL, fill = NULL)
 }
@@ -20,6 +21,7 @@ fig(path, AR = "default", colour = NULL, fill = NULL)
 
 }
 \description{
-fig
-Read image and convert to ggplot object with given aspect ratio.
+Create a fig.
+Read image and convert to ggplot object, for use with other ggplot objects
+when assembling with the \code{{patchwork}} package.
 }

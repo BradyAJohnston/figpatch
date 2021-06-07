@@ -26,8 +26,6 @@ devtools::install_github("BradyAJohnston/figpatch")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
-
 ``` r
 library(figpatch)
 library(ggplot2)
@@ -40,47 +38,106 @@ a `{ggplot}` object via `fig()`. Once converted, you can assemble the
 `patchwork::wrap_plots()`.
 
 ``` r
-img <- fig("data/fig.png")
+img <- fig("inst/extdata/fig.png")
+
 plt <- ggplot(mtcars) + 
   aes(mpg, cyl) + 
-  geom_point()
+  geom_point() + 
+  theme(plot.tag = element_text(hjust = 0, 
+                                vjust = 1))
 
-pat <- patchwork::wrap_plots(img, plt)
+pat <- patchwork::wrap_plots(img, plt, plt, img)
 pat
 ```
 
-<img src="man/figures/README-figpatch-1.png" width="100%" />
+![](README_files/figure-gfm/figpatch-1.png)<!-- -->
 
-Depending on how you want things labelled, the patchwork labelling not
-arrange things how you would like.
+Patchwork already provides support for quick labelling of sub-plots and
+sub-figures using `patchwork::plot_annotation()`.
 
 ``` r
-pat + plot_annotation(tag_levels = "A", 
-                      tag_prefix = "(", tag_suffix = ")",
-                      theme = theme(plot.background = element_rect(colour = "black"))
-)
+pat + plot_annotation(tag_levels = "A")
 ```
 
-<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
+![](README_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+
+For figures which are all just images, labelling *on top* of the image
+is sometimes desired. {patchwork} currently utilises the ggplot `tag`
+option from `ggplot2::labs(tag = ...)` but which currently [doesn’t
+support tagging inside plot
+borders.](https://github.com/tidyverse/ggplot2/issues/4297).
+
+#### The assembled patchwork.
 
 ``` r
-wrap_plots(list(figpatch::figlab(img, "(A)", 
-                             fontsize = 16, 
-                             colour = "gray30"), plt))
+knitr::opts_chunk$set(fig.height = 2, fig.width = 7)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
-
 ``` r
-pat <- wrap_plots(list(plt, figlab(img, "(A)", colour = "gray20"),plt,  figlab(img, "(B)", colour = "gray20")))
-pat
+patchwork::wrap_plots(img, img, img, nrow = 1)
 ```
 
-<img src="man/figures/README-unnamed-chunk-3-2.png" width="100%" />
+![](README_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+
+### The default tagging behaviour.
 
 ``` r
-wrap_plots(list(img, img, img, img, img, img, img, img, img), nrow = 3) + 
+patchwork::wrap_plots(img, img, img, nrow = 1) + 
   plot_annotation(tag_levels = "A")
 ```
 
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+![](README_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+
+### Manually Tagging
+
+A current solution to this is the `figlab()` function which will add a
+supplied tag to the supplied fig.
+
+``` r
+img1 <- figlab(img, "A")
+img2 <- figlab(img, "(B)")
+img3 <- figlab(img, "misc")
+
+patchwork::wrap_plots(img1, img2, img3, nrow = 1)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+A number of default positions are available, as well as support for
+custom `x & y` coordinates.
+
+``` r
+img1 <- figlab(img, "A", pos = "topright")
+img2 <- figlab(img, "(B)", pos = "bottomleft")
+img3 <- figlab(img, "misc", pos = c(0.4, 0.9))
+
+patchwork::wrap_plots(img1, img2, img3, nrow = 1)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+## `figwrap()`
+
+To quickly label and wrap multiple figures, use `figwrap()`
+
+``` r
+figwrap(list(img, img, img), "A", prefix = "(", suffix = ")")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+Larger figures again.
+
+``` r
+knitr::opts_chunk$set(fig.height = 5, fig.width = 7)
+```
+
+Lots of figures assembled.
+
+``` r
+figs <- lapply(1:9, function(x) img)
+
+figwrap(figs, nrow = 3, labelling = 1, suffix = ")")
+```
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->

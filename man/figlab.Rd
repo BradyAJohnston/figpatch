@@ -2,17 +2,19 @@
 % Please edit documentation in R/figpatch.R
 \name{figlab}
 \alias{figlab}
-\title{Label fig plot.}
+\title{Add a label to a fig.}
 \usage{
 figlab(
   plot,
   lab,
   pos = "topleft",
+  x_nudge = 0,
+  y_nudge = 0,
   colour = NULL,
   alpha = NULL,
-  hjust = 0,
-  vjust = 1,
-  fontsize = 20,
+  hjust = NULL,
+  vjust = NULL,
+  fontsize = 12,
   fontface = NULL,
   fontfamily = NULL
 )
@@ -23,6 +25,12 @@ figlab(
 \item{lab}{Label to add to plot.}
 
 \item{pos}{Position of label (Default 'topleft').}
+
+\item{x_nudge}{Minor adjustments to the x position in relative plot
+coordindates (0 being furthest left, 1 being furthest right).}
+
+\item{y_nudge}{Minor adjustments to the y position in relative plot
+coordinates (0 being the bottom, 1 being the top).}
 
 \item{colour}{Colour of label text.}
 
@@ -42,5 +50,5 @@ figlab(
 
 }
 \description{
-Label fig plot.
+Add a label to a fig.
 }
