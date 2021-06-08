@@ -52,7 +52,7 @@ pat
 
 <img src="man/figures/README-figpatch-1.png" width="100%" />
 
-Patchwork already provides support for quick labelling of sub-plots and
+Patchwork already provides support for quick tag of sub-plots and
 sub-figures using `patchwork::plot_annotation()`.
 
 ``` r
@@ -61,8 +61,8 @@ pat + plot_annotation(tag_levels = "A")
 
 <img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
-For figures which are all just images, labelling *on top* of the image
-is sometimes desired. {patchwork} currently utilises the ggplot `tag`
+For figures which are all just images, tag *on top* of the image is
+sometimes desired. {patchwork} currently utilises the ggplot `tag`
 option from `ggplot2::labs(tag = ...)` but which currently [doesn’t
 support tagging inside plot
 borders.](https://github.com/tidyverse/ggplot2/issues/4297).
@@ -147,7 +147,7 @@ figs <- lapply(1:9, function(x) img)
 figwrap(
   figs,
   nrow = 3,
-  labelling = 1,
+  tag = 1,
   suffix = ")",
   b_col = "gray20",
   b_size = 2
@@ -163,7 +163,7 @@ used with `b_unit`.
 figwrap(
   figs,
   nrow = 3,
-  labelling = 1,
+  tag = 1,
   suffix = ")",
   b_col = "gray20",
   b_size = 2, 

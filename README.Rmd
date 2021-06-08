@@ -61,13 +61,13 @@ pat <- patchwork::wrap_plots(img, plt, plt, img)
 pat
 ```
 
-Patchwork already provides support for quick labelling of sub-plots and sub-figures
+Patchwork already provides support for quick tag of sub-plots and sub-figures
 using `patchwork::plot_annotation()`.
 ```{r}
 pat + plot_annotation(tag_levels = "A")
 ```
 
-For figures which are all just images, labelling _on top_ of the image is 
+For figures which are all just images, tag _on top_ of the image is 
 sometimes desired. {patchwork} currently utilises the ggplot `tag` option 
 from `ggplot2::labs(tag = ...)` but which currently [doesn't support tagging inside plot borders.](https://github.com/tidyverse/ggplot2/issues/4297). 
 
@@ -140,7 +140,7 @@ figs <- lapply(1:9, function(x) img)
 figwrap(
   figs,
   nrow = 3,
-  labelling = 1,
+  tag = 1,
   suffix = ")",
   b_col = "gray20",
   b_size = 2
@@ -153,7 +153,7 @@ Adjust the padding around plots with `b_margins` and change the unit used with
 figwrap(
   figs,
   nrow = 3,
-  labelling = 1,
+  tag = 1,
   suffix = ")",
   b_col = "gray20",
   b_size = 2, 

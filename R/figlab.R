@@ -1,7 +1,7 @@
-#' Add a label to a fig.
+#' Add tags and a caption to a fig.
 #'
 #' @param plot Plot from img2plot function.
-#' @param lab Label to add to plot.
+#' @param tag Label to add to plot.
 #' @param pos Position of label (Default 'topleft').
 #' @param hjust hjust of plot label.
 #' @param vjust vjust of plot label.
@@ -21,7 +21,7 @@
 #' @examples
 figlab <-
   function(plot,
-           lab,
+           tag,
            pos = "topleft",
            x_nudge = 0,
            y_nudge = 0,
@@ -137,7 +137,7 @@ figlab <-
 
     plot + ggplot2::annotation_custom(
       grid::textGrob(
-        label = lab,
+        label = tag,
         x = grid::unit(xpos, "npc"),
         y = grid::unit(ypos, "npc"),
         hjust = hjust,

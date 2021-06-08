@@ -1,19 +1,19 @@
 #' Quickly arrange and label multiple figs.
 #'
 #' @param figs List of figs from \code{fig()}.
-#' @param labelling Labels to be applied to figs. Begins with first uppercase or
+#' @param tag Tags to be applied to figs. Begins with first uppercase or
 #'   lowercase letter supplied, or number, and continues the sequence. "A"
 #'   labels them 'A', 'B', etc. "c" labels them 'c', 'd', 'e' etc.
-#' @param prefix Prefix for each label.
-#' @param suffix Suffix for each label.
+#' @param prefix Prefix for each tag
+#' @param suffix Suffix for each tag
 #' @param pos Position for label, to be passed to \code{figlab()}.
-#' @param colour Colour for each label.
-#' @param alpha Alpha for each label.
-#' @param hjust hjust for each label.
-#' @param vjust vjust for each label.
-#' @param fontsize Fontsize for each label.
-#' @param fontfamily Fontfamily for each label.
-#' @param fontface Fontface for each label.
+#' @param colour Colour for each tag
+#' @param alpha Alpha for each tag
+#' @param hjust hjust for each tag
+#' @param vjust vjust for each tag
+#' @param fontsize Fontsize for each tag
+#' @param fontfamily Fontfamily for each tag
+#' @param fontface Fontface for each tag
 #' @param nrow Number of rows in final patchwork.
 #' @param ncol Number of cols in final patchwork.
 #' @param x_nudge Minor adjustments to the x position in relative plot
@@ -30,7 +30,7 @@
 #'
 #' @examples
 figwrap <- function(figs,
-                    labelling = NULL,
+                    tag = NULL,
                     prefix = NULL,
                     suffix = NULL,
                     pos = "topleft",
@@ -58,36 +58,36 @@ figwrap <- function(figs,
   # count number of supplied figs
   num_figs <- length(figs)
 
-  # check what labels are supplied
-  if (!is.null(labelling)) {
-    if (length(labelling) > 1) {
-      if (length(labelling) != length(figs)) {
-        stop("If providing a labelling vector, it must be of equal length to the number of figs.")
+  # check what tags are supplied
+  if (!is.null(tag)) {
+    if (length(tag) > 1) {
+      if (length(tag) != length(figs)) {
+        stop("If providing a tag vector, it must be of equal length to the number of figs.")
       }
-    } else if (grepl("[[:upper:]]", labelling)) {
-      start_let <- grep(labelling, LETTERS)
-      labels <- LETTERS[seq(start_let, start_let + num_figs)]
-    } else if (grepl("[[:lower:]]", labelling)) {
-      start_let <- grep(labelling, letters)
-      labels <- letters[seq(start_let, start_let + num_figs)]
-    } else if (is.numeric(labelling)) {
-      labels <- seq(labelling, labelling + num_figs)
+    } else if (grepl("[[:upper:]]", tag)) {
+      start_let <- grep(tag, LETTERS)
+      tags <- LETTERS[seq(start_let, start_let + num_figs)]
+    } else if (grepl("[[:lower:]]", tag)) {
+      start_let <- grep(tag, letters)
+      tags <- letters[seq(start_let, start_let + num_figs)]
+    } else if (is.numeric(tag)) {
+      tags <- seq(tag, tag + num_figs)
     }
   }
 
 
-  if (!is.null(labelling)) {
-    labels <- paste0(prefix, labels, suffix)
+  if (!is.null(tag)) {
+    tags <- paste0(prefix, tags, suffix)
   } else {
-    labels <- NULL
+    tags <- NULL
   }
   figs <- lapply(seq_along(figs), function(x) {
-    if (is.null(labels)) {
+    if (is.null(tags)) {
       fig <- figs[[x]]
     } else {
       fig <- figlab(
         plot = figs[[x]],
-        lab = labels[x],
+        tag = tags[x],
         pos = pos,
         x_nudge = repeat_value(x_nudge, num_figs, int = x),
         y_nudge = repeat_value(y_nudge, num_figs, int = x),
