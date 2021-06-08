@@ -118,21 +118,49 @@ To add borders around indiviual figures, use `b_*` options inside of `figwrap()`
 or also inside `fig()`.
 
 ```{r}
-figwrap(list(img, img, img), "A", prefix = "(", suffix = ")", b_col = "black")
+figwrap(
+  list(img, img, img),
+  "A",
+  prefix = "(",
+  suffix = ")",
+  b_col = "black"
+)
 ```
 
 
+
+Assembling lots of figures.
 ```{r}
 knitr::opts_chunk$set(fig.height = 5, fig.width = 7)
 ```
 
-Assembling lots of figures.
-
 ```{r}
 figs <- lapply(1:9, function(x) img)
 
-figwrap(figs, nrow = 3, labelling = 1, suffix = ")", b_col = "gray20", b_size = 2)
+figwrap(
+  figs,
+  nrow = 3,
+  labelling = 1,
+  suffix = ")",
+  b_col = "gray20",
+  b_size = 2
+)
 ```
+
+Adjust the padding around plots with `b_margins` and change the unit used with 
+`b_unit`.
+```{r}
+figwrap(
+  figs,
+  nrow = 3,
+  labelling = 1,
+  suffix = ")",
+  b_col = "gray20",
+  b_size = 2, 
+  b_margins = 0.02
+)
+```
+
 
 ## Adding specific sub-plot text.
 At the end of the day, each of the figs is just a `ggplot()` object, so axis

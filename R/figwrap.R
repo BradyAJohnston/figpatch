@@ -47,12 +47,18 @@ figwrap <- function(figs,
                     fontface = NULL,
                     b_col = NULL,
                     b_size = 1,
-                    b_pos = "offset") {
+                    b_pos = "offset",
+                    b_margins = NULL,
+                    b_unit = NULL) {
+  # check if list
   if (!is.list(figs)) {
     stop("figs must be a list of figs created by fig().")
   }
 
+  # count number of supplied figs
   num_figs <- length(figs)
+
+  # check what labels are supplied
   if (!is.null(labelling)) {
     if (length(labelling) > 1) {
       if (length(labelling) != length(figs)) {
@@ -69,12 +75,12 @@ figwrap <- function(figs,
     }
   }
 
+
   if (!is.null(labelling)) {
     labels <- paste0(prefix, labels, suffix)
   } else {
     labels <- NULL
   }
-
   figs <- lapply(seq_along(figs), function(x) {
     if (is.null(labels)) {
       fig <- figs[[x]]
@@ -83,43 +89,37 @@ figwrap <- function(figs,
         plot = figs[[x]],
         lab = labels[x],
         pos = pos,
-        x_nudge = x_nudge,
-        y_nudge = y_nudge,
-        colour = colour,
-        alpha = alpha,
-        hjust = hjust,
-        vjust = vjust,
-        fontsize = fontsize,
-        fontfamily = fontfamily,
-        fontface = fontface
+        x_nudge = repeat_value(x_nudge, num_figs, int = x),
+        y_nudge = repeat_value(y_nudge, num_figs, int = x),
+        colour = repeat_value(colour, num_figs, int = x),
+        alpha = repeat_value(alpha, num_figs, int = x),
+        hjust = repeat_value(hjust, num_figs, int = x),
+        vjust = repeat_value(vjust, num_figs, int = x),
+        fontsize = repeat_value(fontsize, num_figs, int = x),
+        fontfamily = repeat_value(fontfamily, num_figs, int = x),
+        fontface = repeat_value(fontface, num_figs, int = x)
       )
     }
-    if (!is.null(b_col)) {
-      if (b_pos == "offset") {
-        fig <- fig +
-          ggplot2::theme(
-            panel.background = ggplot2::element_rect(
-              colour = b_col,
-              size = b_size
-            )
-          ) +
-          ggplot2::coord_cartesian(clip = "off")
-      } else if (b_pos == "inset") {
-        fig <- fig +
-          ggplot2::theme(
-            panel.border = ggplot2::element_rect(
-              fill = NA,
-              colour = b_col,
-              size = b_size
-            )
-          )
-      } else {
-        stop("border must be either 'inset' or 'offset'.")
-      }
-    }
+
+    # apply borders if specified
+    fig <- fig_borders(
+      fig = fig,
+      b_col = repeat_value(b_col, num_figs, int = x),
+      b_pos = repeat_value(b_pos, num_figs, int = x),
+      b_size = repeat_value(b_size, num_figs, int = x)
+    )
+
+    # Apply specified margins
+    fig <- fig +
+      fig_margins(
+        b_margins = repeat_value(b_margins, num_figs, int = x),
+        b_unit = repeat_value(b_unit, num_figs, int = x)
+      )
+
     # Return the final fig to the list
     fig
   })
+
   # wrap the list of figs together
   patchwork::wrap_plots(figs, ncol = ncol, nrow = nrow)
 }

@@ -23,7 +23,9 @@ figwrap(
   fontface = NULL,
   b_col = NULL,
   b_size = 1,
-  b_pos = "offset"
+  b_pos = "offset",
+  b_margins = NULL,
+  b_unit = NULL
 )
 }
 \arguments{

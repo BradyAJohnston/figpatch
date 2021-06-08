@@ -124,24 +124,54 @@ To add borders around indiviual figures, use `b_*` options inside of
 `figwrap()` or also inside `fig()`.
 
 ``` r
-figwrap(list(img, img, img), "A", prefix = "(", suffix = ")", b_col = "black")
+figwrap(
+  list(img, img, img),
+  "A",
+  prefix = "(",
+  suffix = ")",
+  b_col = "black"
+)
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+
+Assembling lots of figures.
 
 ``` r
 knitr::opts_chunk$set(fig.height = 5, fig.width = 7)
 ```
 
-Assembling lots of figures.
-
 ``` r
 figs <- lapply(1:9, function(x) img)
 
-figwrap(figs, nrow = 3, labelling = 1, suffix = ")", b_col = "gray20", b_size = 2)
+figwrap(
+  figs,
+  nrow = 3,
+  labelling = 1,
+  suffix = ")",
+  b_col = "gray20",
+  b_size = 2
+)
 ```
 
 <img src="man/figures/README-unnamed-chunk-10-1.png" width="100%" />
+
+Adjust the padding around plots with `b_margins` and change the unit
+used with `b_unit`.
+
+``` r
+figwrap(
+  figs,
+  nrow = 3,
+  labelling = 1,
+  suffix = ")",
+  b_col = "gray20",
+  b_size = 2, 
+  b_margins = 0.02
+)
+```
+
+<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
 
 ## Adding specific sub-plot text.
 
@@ -162,4 +192,4 @@ design <- "AB
 patchwork::wrap_plots(img1, img2, img3, design = design)
 ```
 
-<img src="man/figures/README-unnamed-chunk-11-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-12-1.png" width="100%" />
