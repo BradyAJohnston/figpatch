@@ -68,7 +68,7 @@ figwrap <- function(figs,
       labels <- seq(labelling, labelling + num_figs)
     }
   }
-  
+
   if (!is.null(labelling)) {
     labels <- paste0(prefix, labels, suffix)
   } else {

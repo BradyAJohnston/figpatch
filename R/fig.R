@@ -46,9 +46,9 @@ fig <-
         width = ggplot2::unit(1, "npc"),
         height = ggplot2::unit(1, "npc")
       )) +
-    ggplot2::theme(
-      aspect.ratio = AR
-    )
+      ggplot2::theme(
+        aspect.ratio = AR
+      )
 
     # Add a border to the fig. Border can be offset (expand from the outside
     # of the fig, or inset and expand into the centre of the fig, partially

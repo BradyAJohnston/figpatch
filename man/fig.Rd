@@ -6,16 +6,16 @@
 Read image and convert to ggplot object, for use with other ggplot objects
 when assembling with the \code{{patchwork}} package. Can also specify a border.}
 \usage{
-fig(path, AR = "default", b_size = NULL, b_col = NULL, b_pos = "offset")
+fig(path, AR = "default", b_col = NULL, b_size = 1, b_pos = "offset")
 }
 \arguments{
 \item{path}{Path to image file.}
 
 \item{AR}{Aspect ratio. 'default' inherits image's aspect ratio.}
 
-\item{b_size}{Size of the border line.}
-
 \item{b_col}{Colour of the border line.}
+
+\item{b_size}{Size of the border line.}
 
 \item{b_pos}{Whether the border is 'offset' (expands out from figure) or
 'inset' and expands inwards, partially covering up the figure.}
