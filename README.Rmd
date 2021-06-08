@@ -5,12 +5,12 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
-# knitr::opts_chunk$set(
-#   collapse = TRUE,
-#   comment = "#>",
-#   fig.path = "man/figures/README-",
-#   out.width = "100%"
-# )
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
 ```
 
 # figpatch
@@ -114,8 +114,11 @@ patchwork::wrap_plots(img1, img2, img3, nrow = 1)
 ## `figwrap()`
 To quickly label and wrap multiple figures, use `figwrap()` 
 
+To add borders around indiviual figures, use `b_*` options inside of `figwrap()` 
+or also inside `fig()`.
+
 ```{r}
-figwrap(list(img, img, img), "A", prefix = "(", suffix = ")")
+figwrap(list(img, img, img), "A", prefix = "(", suffix = ")", b_col = "black")
 ```
 
 
@@ -128,7 +131,7 @@ Assembling lots of figures.
 ```{r}
 figs <- lapply(1:9, function(x) img)
 
-figwrap(figs, nrow = 3, labelling = 1, suffix = ")")
+figwrap(figs, nrow = 3, labelling = 1, suffix = ")", b_col = "gray20", b_size = 2)
 ```
 
 ## Adding specific sub-plot text.
@@ -139,7 +142,7 @@ also be used to arrange the figures specifically.
 ```{r warning=FALSE}
 img1 <- img1 + labs(x = "A label below the fig.")
 
-img2 <- img2 + labs(x = "A label below the fig.") + 
+img2 <- img2 + labs(x = "An italic label below the fig.") + 
   theme(axis.title.x = element_text(face = "italic"))
   
 
