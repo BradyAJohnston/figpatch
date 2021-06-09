@@ -4,8 +4,6 @@
 # figpatch
 
 <!-- badges: start -->
-
-[![R-CMD-check](https://github.com/BradyAJohnston/figpatch/workflows/R-CMD-check/badge.svg)](https://github.com/BradyAJohnston/figpatch/actions)
 <!-- badges: end -->
 
 The goal of figpatch is to create an easy way to incorporate external
