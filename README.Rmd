@@ -203,8 +203,6 @@ img3 <- img3 +
   labs(x = "Below you will find a fig.") + 
   scale_x_continuous(position = "top") + 
   theme(axis.title.x.top = element_text(margin = margin(b = 5)))
-  
-img3
 
 design <- "AB
            CC"

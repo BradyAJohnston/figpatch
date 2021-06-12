@@ -222,17 +222,11 @@ img3 <- img3 +
   labs(x = "Below you will find a fig.") + 
   scale_x_continuous(position = "top") + 
   theme(axis.title.x.top = element_text(margin = margin(b = 5)))
-  
-img3
-```
 
-<img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />
-
-``` r
 design <- "AB
            CC"
 
 wrap_plots(img1, img2, img3, design = design)
 ```
 
-<img src="man/figures/README-unnamed-chunk-14-2.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-14-1.png" width="100%" />
