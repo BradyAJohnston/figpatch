@@ -114,8 +114,8 @@ figwrap <- function(figs,
       fig <- fig +
         fig_margins(
           b_margins = repeat_value(b_margins, num_figs, int = x),
-          b_unit = repeat_value(b_unit, num_figs, int = x), 
-          AR = fig$theme$aspect.ratio
+          b_unit = repeat_value(b_unit, num_figs, int = x),
+          aspect.ratio = fig$theme$aspect.ratio
         )
     }
 

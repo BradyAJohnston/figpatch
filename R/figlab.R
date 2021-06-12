@@ -33,9 +33,9 @@ figlab <-
            fontface = NULL,
            fontfamily = NULL) {
     if ("aspect.ratio" %in% names(plot$theme)) {
-      AR <- plot$theme$aspect.ratio
+      aspect.ratio <- plot$theme$aspect.ratio
     } else {
-      AR <- 1
+      aspect.ratio <- 1
     }
 
     # Possible default positions
@@ -54,15 +54,15 @@ figlab <-
 
     # Lookups for the different default labelling positions
     xpos_lookup <- c(
-      "topleft" = 0.05 * AR,
-      "topright" = 1 - (0.05 * AR),
+      "topleft" = 0.05 * aspect.ratio,
+      "topright" = 1 - (0.05 * aspect.ratio),
       "top" = 0.5,
       "bottom" = 0.5,
-      "left" = 0.05 * AR,
-      "right" = 1 - (0.05 * AR),
+      "left" = 0.05 * aspect.ratio,
+      "right" = 1 - (0.05 * aspect.ratio),
       "centre" = 0.5,
-      "bottomleft" = 0.05 * AR,
-      "bottomright" = 1 - (0.05 * AR)
+      "bottomleft" = 0.05 * aspect.ratio,
+      "bottomright" = 1 - (0.05 * aspect.ratio)
     )
     ypos_lookup <- c(
       "topleft" = 0.95,
@@ -132,7 +132,7 @@ figlab <-
       }
     }
 
-    xpos <- xpos + x_nudge * AR
+    xpos <- xpos + x_nudge * aspect.ratio
     ypos <- ypos + y_nudge
 
     plot + ggplot2::annotation_custom(

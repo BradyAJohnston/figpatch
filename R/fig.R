@@ -3,7 +3,8 @@
 #' when assembling with the \code{{patchwork}} package. Can also specify a border.
 #'
 #' @param path Path to image file.
-#' @param AR Aspect ratio. 'default' inherits image's aspect ratio.
+#' @param aspect.ratio Manually override the image's aspect ratio or set "free" to allow fig
+#'   to be resized by patchwork.
 #' @param b_pos Whether the border is 'offset' (expands out from figure) or
 #'   'inset' and expands inwards, partially covering up the figure.
 #' @param b_col Colour of the border line.
@@ -19,12 +20,14 @@
 #' @examples
 fig <-
   function(path,
-           AR = "default",
+           aspect.ratio = "default",
            b_col = NULL,
            b_size = 1,
            b_pos = "offset",
            b_margins = 0.01,
            b_unit = "npc") {
+    
+    # read in specified image
     if (grepl(".svg", path)) {
       warning("Currently .svg will be rasterised in the final plot.")
       img <- magick::image_read_svg(path)
@@ -40,15 +43,15 @@ fig <-
     y_dim <- magick::image_info(img)$height
 
     # Set aspect.ratio based on image dimensions or supplied values
-    if (AR == "default") {
-      AR <- y_dim / x_dim
-    } else if (AR == "resize") {
-      AR <- NULL
-    } else if (!is.numeric(AR)) {
-      stop("Aspect ratio (AR) must be either 'default', or a valid numeric number.")
+    if (aspect.ratio == "default") {
+      aspect.ratio <- y_dim / x_dim
+    } else if (aspect.ratio == "free") {
+      aspect.ratio <- NULL
+    } else if (!is.numeric(aspect.ratio)) {
+      stop("aspect.ratio must be either 'default', 'free', or a valid numeric number.")
     }
-    
-    
+
+
     # create actual fig
     fig <- ggplot2::ggplot() +
       ggplot2::annotation_custom(grid::rasterGrob(
@@ -58,9 +61,9 @@ fig <-
         height = ggplot2::unit(1, "npc")
       )) +
       ggplot2::theme(
-        aspect.ratio = AR
+        aspect.ratio = aspect.ratio
       ) +
-      fig_margins(b_margins, b_unit, AR)
+      fig_margins(b_margins, b_unit, aspect.ratio)
 
     # Add a border to the fig. Border can be offset (expand from the outside
     # of the fig, or inset and expand into the centre of the fig, partially

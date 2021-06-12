@@ -8,7 +8,7 @@ when assembling with the \code{{patchwork}} package. Can also specify a border.}
 \usage{
 fig(
   path,
-  AR = "default",
+  aspect.ratio = "default",
   b_col = NULL,
   b_size = 1,
   b_pos = "offset",
@@ -19,7 +19,8 @@ fig(
 \arguments{
 \item{path}{Path to image file.}
 
-\item{AR}{Aspect ratio. 'default' inherits image's aspect ratio.}
+\item{aspect.ratio}{Manually override the image's aspect ratio or set "free" to allow fig
+to be resized by patchwork.}
 
 \item{b_col}{Colour of the border line.}
 
