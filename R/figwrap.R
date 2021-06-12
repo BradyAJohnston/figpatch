@@ -110,11 +110,14 @@ figwrap <- function(figs,
     )
 
     # Apply specified margins
-    fig <- fig +
-      fig_margins(
-        b_margins = repeat_value(b_margins, num_figs, int = x),
-        b_unit = repeat_value(b_unit, num_figs, int = x)
-      )
+    if (!is.null(b_margins)) {
+      fig <- fig +
+        fig_margins(
+          b_margins = repeat_value(b_margins, num_figs, int = x),
+          b_unit = repeat_value(b_unit, num_figs, int = x), 
+          AR = fig$theme$aspect.ratio
+        )
+    }
 
     # Return the final fig to the list
     fig

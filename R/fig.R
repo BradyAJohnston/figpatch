@@ -47,7 +47,8 @@ fig <-
     } else if (!is.numeric(AR)) {
       stop("Aspect ratio (AR) must be either 'default', or a valid numeric number.")
     }
-
+    
+    
     # create actual fig
     fig <- ggplot2::ggplot() +
       ggplot2::annotation_custom(grid::rasterGrob(
@@ -59,7 +60,7 @@ fig <-
       ggplot2::theme(
         aspect.ratio = AR
       ) +
-      fig_margins(b_margins, b_unit)
+      fig_margins(b_margins, b_unit, AR)
 
     # Add a border to the fig. Border can be offset (expand from the outside
     # of the fig, or inset and expand into the centre of the fig, partially

@@ -6,7 +6,7 @@
 \usage{
 figwrap(
   figs,
-  labelling = NULL,
+  tag = NULL,
   prefix = NULL,
   suffix = NULL,
   pos = "topleft",
@@ -31,13 +31,13 @@ figwrap(
 \arguments{
 \item{figs}{List of figs from \code{fig()}.}
 
-\item{labelling}{Labels to be applied to figs. Begins with first uppercase or
+\item{tag}{Tags to be applied to figs. Begins with first uppercase or
 lowercase letter supplied, or number, and continues the sequence. "A"
 labels them 'A', 'B', etc. "c" labels them 'c', 'd', 'e' etc.}
 
-\item{prefix}{Prefix for each label.}
+\item{prefix}{Prefix for each tag}
 
-\item{suffix}{Suffix for each label.}
+\item{suffix}{Suffix for each tag}
 
 \item{pos}{Position for label, to be passed to \code{figlab()}.}
 
@@ -51,19 +51,19 @@ coordinates (0 being the bottom, 1 being the top).}
 
 \item{ncol}{Number of cols in final patchwork.}
 
-\item{colour}{Colour for each label.}
+\item{colour}{Colour for each tag}
 
-\item{alpha}{Alpha for each label.}
+\item{alpha}{Alpha for each tag}
 
-\item{hjust}{hjust for each label.}
+\item{hjust}{hjust for each tag}
 
-\item{vjust}{vjust for each label.}
+\item{vjust}{vjust for each tag}
 
-\item{fontsize}{Fontsize for each label.}
+\item{fontsize}{Fontsize for each tag}
 
-\item{fontfamily}{Fontfamily for each label.}
+\item{fontfamily}{Fontfamily for each tag}
 
-\item{fontface}{Fontface for each label.}
+\item{fontface}{Fontface for each tag}
 
 \item{b_col}{Colour of individual fig borders.}
 
