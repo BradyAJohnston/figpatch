@@ -117,28 +117,28 @@ patchwork::wrap_plots(img, img, img, nrow = 1) +
 
 ### {figpatch} tagging the figs
 
-To add internal tags to the figs, use the `figlab()` function.
+To add internal tags to the figs, use the `figtag()` function.
 Assembling with {patchwork} can continue as normal.
 
 ``` r
-img1 <- figlab(img, "A")
-img2 <- figlab(img, "(B)")
-img3 <- figlab(img, "misc")
+img1 <- figtag(img, "A")
+img2 <- figtag(img, "(B)")
+img3 <- figtag(img, "misc")
 
 patchwork::wrap_plots(img1, img2, img3, nrow = 1)
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-A number of default positions can be supplied to `figlab(pos = ...)` or
+A number of default positions can be supplied to `figtag(pos = ...)` or
 a custom vector which will place the text in `npc` coordinates (0 to 1
 for both `x` and `y`) and automatically adjust for the aspect ratio of
 the fig.
 
 ``` r
-img1 <- figlab(img, "A", pos = "topright")
-img2 <- figlab(img, "(B)", pos = "bottomleft")
-img3 <- figlab(img, "misc", pos = c(0.4, 0.9))
+img1 <- figtag(img, "A", pos = "topright")
+img2 <- figtag(img, "(B)", pos = "bottomleft")
+img3 <- figtag(img, "misc", pos = c(0.4, 0.9))
 
 wrap_plots(img1, img2, img3, nrow = 1)
 ```

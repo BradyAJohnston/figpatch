@@ -6,7 +6,7 @@
 #'   labels them 'A', 'B', etc. "c" labels them 'c', 'd', 'e' etc.
 #' @param prefix Prefix for each tag
 #' @param suffix Suffix for each tag
-#' @param pos Position for label, to be passed to \code{figlab()}.
+#' @param pos Position for label, to be passed to \code{figtag()}.
 #' @param colour Colour for each tag
 #' @param alpha Alpha for each tag
 #' @param hjust hjust for each tag
@@ -111,7 +111,7 @@ figwrap <- function(figs,
     if (is.null(tags)) {
       fig <- figs[[x]]
     } else {
-      fig <- figlab(
+      fig <- figtag(
         plot = figs[[x]],
         tag = tags[x],
         pos = pos,

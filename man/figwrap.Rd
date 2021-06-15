@@ -39,7 +39,7 @@ labels them 'A', 'B', etc. "c" labels them 'c', 'd', 'e' etc.}
 
 \item{suffix}{Suffix for each tag}
 
-\item{pos}{Position for label, to be passed to \code{figlab()}.}
+\item{pos}{Position for label, to be passed to \code{figtag()}.}
 
 \item{x_nudge}{Minor adjustments to the x position in relative plot
 coordindates (0 being furthest left, 1 being furthest right).}
