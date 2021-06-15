@@ -37,7 +37,13 @@ a `{ggplot}` object via `fig()`. Once converted, you can assemble the
 `{patchwork}` as you would otherwise with `+ / - * &` or `wrap_plots()`.
 
 ``` r
-img <- fig("inst/extdata/fig.png")
+image_path <- system.file(
+  "extdata", 
+  "fig.png", 
+  package = "figpatch", 
+  mustWork = TRUE)
+
+img <- fig(image_path)
 
 plt <- ggplot(mtcars) + 
   aes(mpg, cyl) + 
@@ -94,7 +100,7 @@ borders.](https://github.com/tidyverse/ggplot2/issues/4297)
 
 Lets see how it plays out.
 
-#### The assembled figs.
+#### The assembled figs
 
 ``` r
 knitr::opts_chunk$set(fig.height = 2, fig.width = 7)
@@ -106,7 +112,7 @@ patchwork::wrap_plots(img, img, img, nrow = 1)
 
 <img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
 
-### Patchwork tagging the figs.
+### {patchwork} tagging the figs
 
 ``` r
 patchwork::wrap_plots(img, img, img, nrow = 1) + 
@@ -202,7 +208,7 @@ figwrap(
 
 <img src="man/figures/README-unnamed-chunk-13-1.png" width="100%" />
 
-## Adding specific sub-plot text.
+## Adding specific sub-plot text
 
 At the end of the day, each of the figs is just a `ggplot()` object.
 More support for labelling is planned, but at the moment axis labels can

@@ -49,7 +49,14 @@ To use images inside of a patchwork object, they need to be converted to a
 `{patchwork}` as you would otherwise with `+ / - * &` or `wrap_plots()`.
 
 ```{r figpatch}
-img <- fig("inst/extdata/fig.png")
+
+image_path <- system.file(
+  "extdata", 
+  "fig.png", 
+  package = "figpatch", 
+  mustWork = TRUE)
+
+img <- fig(image_path)
 
 plt <- ggplot(mtcars) + 
   aes(mpg, cyl) + 
@@ -93,7 +100,7 @@ from `ggplot2::labs(tag = ...)` but which currently [doesn't support tagging ins
 
 Lets see how it plays out.
 
-#### The assembled figs.
+#### The assembled figs
 ```{r fig.height=2, fig.width=7}
 knitr::opts_chunk$set(fig.height = 2, fig.width = 7)
 ```
@@ -103,7 +110,7 @@ knitr::opts_chunk$set(fig.height = 2, fig.width = 7)
 patchwork::wrap_plots(img, img, img, nrow = 1)
 ```
 
-### Patchwork tagging the figs.
+### {patchwork} tagging the figs
 ```{r}
 patchwork::wrap_plots(img, img, img, nrow = 1) + 
   plot_annotation(tag_levels = "A")
@@ -185,7 +192,7 @@ figwrap(
 ```
 
 
-## Adding specific sub-plot text.
+## Adding specific sub-plot text
 At the end of the day, each of the figs is just a `ggplot()` object. More
 support for labelling is planned, but at the moment axis labels can be used to
 add text below and above.
