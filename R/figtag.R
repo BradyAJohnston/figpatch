@@ -5,7 +5,7 @@
 #' @param pos Position of label (Default 'topleft').
 #' @param hjust hjust of plot label.
 #' @param vjust vjust of plot label.
-#' @param fontsize Fontsize of laebl (in points).
+#' @param fontsize Fontsize of label (in points).
 #' @param fontfamily Fontfamily of plot label.
 #' @param colour Colour of label text.
 #' @param alpha Alpha of label text.

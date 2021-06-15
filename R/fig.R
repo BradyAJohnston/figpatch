@@ -1,4 +1,5 @@
-#' Create a fig.
+#' Parse Image to a Fig
+#' 
 #' Read image and convert to ggplot object, for use with other ggplot objects
 #' when assembling with the \code{{patchwork}} package. Can also specify a border.
 #'

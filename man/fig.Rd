@@ -2,9 +2,7 @@
 % Please edit documentation in R/fig.R
 \name{fig}
 \alias{fig}
-\title{Create a fig.
-Read image and convert to ggplot object, for use with other ggplot objects
-when assembling with the \code{{patchwork}} package. Can also specify a border.}
+\title{Parse Image to a Fig}
 \usage{
 fig(
   path,
@@ -34,7 +32,6 @@ to be resized by patchwork.}
 ggplot2 plot with external figure.
 }
 \description{
-Create a fig.
 Read image and convert to ggplot object, for use with other ggplot objects
 when assembling with the \code{{patchwork}} package. Can also specify a border.
 }

@@ -40,7 +40,7 @@ coordinates (0 being the bottom, 1 being the top).}
 
 \item{vjust}{vjust of plot label.}
 
-\item{fontsize}{Fontsize of laebl (in points).}
+\item{fontsize}{Fontsize of label (in points).}
 
 \item{fontface}{The font face (bolt, italic, ...)}
 
