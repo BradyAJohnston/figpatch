@@ -202,7 +202,7 @@ figwrap(
   suffix = ")",
   b_col = "gray20",
   b_size = 2, 
-  b_margins = 0.02
+  b_margin = ggplot2::margin(8, 8, 8, 8)
 )
 ```
 
@@ -210,24 +210,17 @@ figwrap(
 
 ## Adding specific sub-plot text
 
-At the end of the day, each of the figs is just a `ggplot()` object.
-More support for labelling is planned, but at the moment axis labels can
-be used to add text below and above. Designs in `{patchwork}` can also
-be used to arrange the [figures
-specifically](https://patchwork.data-imaginist.com/articles/guides/layout.html#moving-beyond-the-grid).
+You can add labels to the text using the `figlab()` function. Some
+customisations are available. At the end of the day, a `fig()` is just a
+`ggplot` object, and the labels are just the axis titles (x or y). You
+can add your own `theme()` elements to customise further.
 
 ``` r
-img1 <- img1 + 
-  labs(x = "A label below the fig.")
+img1 <- figlab(img1, "Above is a fig.")
 
-img2 <- img2 + 
-  labs(x = "An italic label below the fig.") +
-  theme(axis.title.x = element_text(face = "italic"))
+img2 <- figlab(img2, "This is an italic label.", fontface = "italic")
 
-img3 <- img3 + 
-  labs(x = "Below you will find a fig.") + 
-  scale_x_continuous(position = "top") + 
-  theme(axis.title.x.top = element_text(margin = margin(b = 5)))
+img3 <- figlab(img3, "Below is a fig.", pos = "top")
 
 design <- "AB
            CC"

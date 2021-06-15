@@ -12,8 +12,7 @@ fig(
   b_col = NULL,
   b_size = 1,
   b_pos = "offset",
-  b_margins = 0.01,
-  b_unit = "npc"
+  b_margin = ggplot2::margin(4, 4, 4, 4)
 )
 }
 \arguments{
@@ -29,11 +28,7 @@ to be resized by patchwork.}
 \item{b_pos}{Whether the border is 'offset' (expands out from figure) or
 'inset' and expands inwards, partially covering up the figure.}
 
-\item{b_margins}{Margins around the fig. Dimensions for top, right, bottom
-and left margins. Numeric vector of 1, 2 will be recycled for all 4
-dimensions.}
-
-\item{b_unit}{Unit used for margins. Defaults to 'npc'. (see: ggplot2::unit())}
+\item{b_margin}{Margin around the fig. Use \code{ggplot2::margin()}}
 }
 \value{
 ggplot2 plot with external figure.

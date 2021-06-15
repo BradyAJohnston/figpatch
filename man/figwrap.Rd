@@ -24,8 +24,7 @@ figwrap(
   b_col = NULL,
   b_size = 1,
   b_pos = "offset",
-  b_margins = NULL,
-  b_unit = NULL
+  b_margin = ggplot2::margin(4, 4, 4, 4)
 )
 }
 \arguments{
@@ -72,12 +71,8 @@ coordinates (0 being the bottom, 1 being the top).}
 \item{b_pos}{Either "offset" and expanding outwards from borders of figure,
 or "inset" and expanding inwards and partially covering the figure.}
 
-\item{b_margins}{Adjust margins for the plots, in given units (default
-"npc"). c(top, right, bottom, left) margins to be supplied, if vector of
-length 1 or 2 is given, values will be recycled to to make a vector of
-length 4.}
-
-\item{b_unit}{Unit for the margin adjustment, defaults to "npc".}
+\item{b_margin}{Margins to adjust around the figs. Use
+\code{ggplot2::margin()}}
 }
 \value{
 \code{patchwork} patch of supplied figs.
