@@ -51,6 +51,7 @@ ggplot2 fig with label added.
 }
 \description{
 Add tags and a caption to a fig.
+<<<<<<< HEAD
 }
 \examples{
 
@@ -69,4 +70,6 @@ img2 <- figlab(img, "B", pos = "topright")
 
 # assemble the patchwork
 patchwork::wrap_plots(img1, img2)
+=======
+>>>>>>> bcd0cbb6a886a575b026f273e0da68f92d2e1178
 }

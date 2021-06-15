@@ -4,8 +4,8 @@
 #' @param b_unit
 #'
 #' @noRd
-fig_margins <- function(b_margins, b_unit) {
-  # calculate border values
+fig_margins <- function(b_margins, b_unit, aspect.ratio = NULL) {
+  # calculate border values (t,r,b,l)
   if (is.null(b_margins)) {
     NULL
   } else {
@@ -21,6 +21,10 @@ fig_margins <- function(b_margins, b_unit) {
     } else {
       stop("b_margins must be a numeric vector of length 1, 2, or 4.")
     }
+
+    # adjust margins to account foraspect.ratioof image.
+    if (is.null(aspect.ratio)) aspect.ratio <- 1
+    b_margins <- b_margins * c(1, aspect.ratio, 1, aspect.ratio)
 
     if (is.null(b_unit)) {
       b_unit <- "npc"
