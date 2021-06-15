@@ -51,7 +51,6 @@ ggplot2 fig with label added.
 }
 \description{
 Add tags and a caption to a fig.
-<<<<<<< HEAD
 }
 \examples{
 
@@ -59,7 +58,8 @@ library(figpatch)
 library(ggplot2)
 
 # Attach the fig image file
-image <- system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
+image <- system.file("extdata", "fig.png", package = "figpatch", mustWork =
+TRUE)
 
 # Read in the image as a 'fig'
 img <- fig(image)
@@ -70,6 +70,4 @@ img2 <- figlab(img, "B", pos = "topright")
 
 # assemble the patchwork
 patchwork::wrap_plots(img1, img2)
-=======
->>>>>>> bcd0cbb6a886a575b026f273e0da68f92d2e1178
 }

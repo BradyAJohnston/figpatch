@@ -1,8 +1,5 @@
 #' Creating margins for figs.
 #'
-#' @param b_margins
-#' @param b_unit
-#'
 #' @noRd
 fig_margins <- function(b_margins, b_unit, aspect.ratio = NULL) {
   # calculate border values (t,r,b,l)
@@ -37,12 +34,6 @@ fig_margins <- function(b_margins, b_unit, aspect.ratio = NULL) {
 
 #' Adding borders to plots.
 #'
-#' Internal use.
-#'
-#' @param fig
-#' @param b_col
-#' @param b_pos
-#' @param b_size
 #'
 #' @noRd
 fig_borders <- function(fig, b_col, b_pos, b_size) {
@@ -76,10 +67,8 @@ fig_borders <- function(fig, b_col, b_pos, b_size) {
   fig
 }
 
-#' Title
+#' Repeat a value if needed
 #'
-#' @param value
-#' @param times
 #'
 #' @noRd
 repeat_value <- function(value, times, int) {

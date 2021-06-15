@@ -72,11 +72,12 @@ coordinates (0 being the bottom, 1 being the top).}
 \item{b_pos}{Either "offset" and expanding outwards from borders of figure,
 or "inset" and expanding inwards and partially covering the figure.}
 
-\item{b_margins}{Margins for top, right, bottom and left of the figure.
-If vector of length one or 2 is given, it will be recycled to make 4
-margins. e.g. c(t,r,b,l)}
+\item{b_margins}{Adjust margins for the plots, in given units (default
+"npc"). c(top, right, bottom, left) margins to be supplied, if vector of
+length 1 or 2 is given, values will be recycled to to make a vector of
+length 4.}
 
-\item{b_unit}{Unit for margins. Defaults to "npc".}
+\item{b_unit}{Unit for the margin adjustment, defaults to "npc".}
 }
 \value{
 \code{patchwork} patch of supplied figs.
