@@ -1,6 +1,6 @@
-#' Create a fig.
-#' Read image and convert to ggplot object, for use with other ggplot objects
-#' when assembling with the \code{{patchwork}} package. Can also specify a border.
+#' Create a fig. Read image and convert to ggplot object, for use with other
+#' ggplot objects when assembling with the \code{{patchwork}} package. Can also
+#' specify a border.
 #'
 #' @param path Path to image file.
 #' @param AR Aspect ratio. 'default' inherits image's aspect ratio.
@@ -11,12 +11,31 @@
 #' @param b_margins Margins around the fig. Dimensions for top, right, bottom
 #'   and left margins. Numeric vector of 1, 2 will be recycled for all 4
 #'   dimensions.
-#' @param b_unit Unit used for margins. Defaults to 'npc'. (see: ggplot2::unit())
+#' @param b_unit Unit used for margins. Defaults to 'npc'. (see:
+#'   ggplot2::unit())
 #'
 #' @return ggplot2 plot with external figure.
 #' @export
 #'
 #' @examples
+#' library(figpatch)
+#' library(ggplot2)
+#'
+#' # Attach the fig image file
+#' image <- system.file("extdata", "fig.png", package = "figpatch", mustWork =
+#' TRUE)
+#'
+#' # Read in the image as a 'fig'
+#' img <- fig(image)
+#'
+#' img
+#'
+#' # Create plot to align with
+#' plt <- ggplot(mtcars, aes(cyl, mpg)) +
+#'   geom_point()
+#'
+#' # assemble the patchwork
+#' patchwork::wrap_plots(img, plt)
 fig <-
   function(path,
            AR = "default",

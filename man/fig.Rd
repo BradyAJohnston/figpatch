@@ -42,3 +42,22 @@ Create a fig.
 Read image and convert to ggplot object, for use with other ggplot objects
 when assembling with the \code{{patchwork}} package. Can also specify a border.
 }
+\examples{
+library(figpatch)
+library(ggplot2)
+
+# Attach the fig image file
+image <- system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
+
+# Read in the image as a 'fig'
+img <- fig(image)
+
+img
+
+# Create plot to align with
+plt <- ggplot(mtcars, aes(cyl, mpg)) +
+  geom_point()
+
+# assemble the patchwork
+patchwork::wrap_plots(img, plt)
+}

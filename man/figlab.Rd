@@ -2,11 +2,11 @@
 % Please edit documentation in R/figlab.R
 \name{figlab}
 \alias{figlab}
-\title{Add a label to a fig.}
+\title{Add tags and a caption to a fig.}
 \usage{
 figlab(
   plot,
-  lab,
+  tag,
   pos = "topleft",
   x_nudge = 0,
   y_nudge = 0,
@@ -22,7 +22,7 @@ figlab(
 \arguments{
 \item{plot}{Plot from img2plot function.}
 
-\item{lab}{Label to add to plot.}
+\item{tag}{Label to add to plot.}
 
 \item{pos}{Position of label (Default 'topleft').}
 
@@ -50,5 +50,23 @@ coordinates (0 being the bottom, 1 being the top).}
 ggplot2 fig with label added.
 }
 \description{
-Add a label to a fig.
+Add tags and a caption to a fig.
+}
+\examples{
+
+library(figpatch)
+library(ggplot2)
+
+# Attach the fig image file
+image <- system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
+
+# Read in the image as a 'fig'
+img <- fig(image)
+
+# Add tags on top of the figs
+img1 <- figlab(img, "A")
+img2 <- figlab(img, "B", pos = "topright")
+
+# assemble the patchwork
+patchwork::wrap_plots(img1, img2)
 }

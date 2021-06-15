@@ -24,11 +24,36 @@
 #' @param b_size Size of individual fig borders (in mm).
 #' @param b_pos Either "offset" and expanding outwards from borders of figure,
 #'   or "inset" and expanding inwards and partially covering the figure.
+#' @param b_margins Margins for top, right, bottom and left of the figure.
+#'   If vector of length one or 2 is given, it will be recycled to make 4
+#'   margins. e.g. c(t,r,b,l)
+#' @param b_unit Unit for margins. Defaults to "npc".
 #'
 #' @return \code{patchwork} patch of supplied figs.
 #' @export
 #'
 #' @examples
+#'
+#' library(figpatch)
+#' library(ggplot2)
+#'
+#' # Attach the fig image file
+#' image <- system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
+#'
+#' # Read in the image as a 'fig'
+#' img <- fig(image)
+#'
+#' # multiple figs
+#' figs <- lapply(1:9, function(x) img)
+#'
+#' # wrap the figs
+#' figwrap(figs)
+#'
+#' # Wrap the figs and auto-tag
+#' figwrap(figs, tag = "A", suffix = ")")
+#'
+#' # Wrap figs, auto-tag and adds border.
+#' figwrap(figs, tag = 1, prefix = "(", suffix = ")", b_col = "black")
 figwrap <- function(figs,
                     tag = NULL,
                     prefix = NULL,

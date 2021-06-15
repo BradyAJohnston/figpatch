@@ -19,6 +19,22 @@
 #' @export
 #'
 #' @examples
+#'
+#' library(figpatch)
+#' library(ggplot2)
+#'
+#' # Attach the fig image file
+#' image <- system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
+#'
+#' # Read in the image as a 'fig'
+#' img <- fig(image)
+#'
+#' # Add tags on top of the figs
+#' img1 <- figlab(img, "A")
+#' img2 <- figlab(img, "B", pos = "topright")
+#'
+#' # assemble the patchwork
+#' patchwork::wrap_plots(img1, img2)
 figlab <-
   function(plot,
            tag,
