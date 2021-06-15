@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # figpatch
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![Codecov test coverage](https://codecov.io/gh/BradyAJohnston/figpatch/branch/master/graph/badge.svg)](https://codecov.io/gh/BradyAJohnston/figpatch?branch=master)
 <!-- badges: end -->
 
 The goal of figpatch is to create an easy way to incorporate external figures
