@@ -128,43 +128,43 @@ patchwork::wrap_plots(img, img, img, nrow = 1) +
 
 ### {figpatch} tagging the figs
 
-To add internal tags to the figs, use the `figtag()` function.
+To add internal tags to the figs, use the `fig_tag()` function.
 Assembling with {patchwork} can continue as normal.
 
 ``` r
-img1 <- figtag(img, "A")
-img2 <- figtag(img, "(B)")
-img3 <- figtag(img, "misc")
+img1 <- fig_tag(img, "A")
+img2 <- fig_tag(img, "(B)")
+img3 <- fig_tag(img, "misc")
 
 patchwork::wrap_plots(img1, img2, img3, nrow = 1)
 ```
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-A number of default positions can be supplied to `figtag(pos = ...)` or
+A number of default positions can be supplied to `fig_tag(pos = ...)` or
 a custom vector which will place the text in `npc` coordinates (0 to 1
 for both `x` and `y`) and automatically adjust for the aspect ratio of
 the fig.
 
 ``` r
-img1 <- figtag(img, "A", pos = "topright")
-img2 <- figtag(img, "(B)", pos = "bottomleft")
-img3 <- figtag(img, "misc", pos = c(0.4, 0.9))
+img1 <- fig_tag(img, "A", pos = "topright")
+img2 <- fig_tag(img, "(B)", pos = "bottomleft")
+img3 <- fig_tag(img, "misc", pos = c(0.4, 0.9))
 
 wrap_plots(img1, img2, img3, nrow = 1)
 ```
 
 <img src="man/figures/README-unnamed-chunk-9-1.png" width="100%" />
 
-## `figwrap()`
+## `fig_wrap()`
 
-To quickly label and wrap multiple figures, use `figwrap()`
+To quickly label and wrap multiple figures, use `fig_wrap()`
 
 To add borders around individual figures, use `b_*` options inside of
-`figwrap()` or specify them individually with `fig()`.
+`fig_wrap()` or specify them individually with `fig()`.
 
 ``` r
-figwrap(
+fig_wrap(
   list(img, img, img),
   "A",
   prefix = "(",
@@ -184,7 +184,7 @@ knitr::opts_chunk$set(fig.height = 5, fig.width = 7)
 ``` r
 figs <- lapply(1:9, function(x) img)
 
-figwrap(
+fig_wrap(
   figs,
   nrow = 3,
   tag = 1,
@@ -200,7 +200,7 @@ Adjust the padding around plots with `b_margins` and change the unit
 used with `b_unit`.
 
 ``` r
-figwrap(
+fig_wrap(
   figs,
   nrow = 3,
   tag = 1,
@@ -215,17 +215,17 @@ figwrap(
 
 ## Adding specific sub-plot text
 
-You can add labels to the text using the `figlab()` function. Some
+You can add labels to the text using the `fig_lab()` function. Some
 customisations are available. At the end of the day, a `fig()` is just a
 `ggplot` object, and the labels are just the axis titles (x or y). You
 can add your own `theme()` elements to customise further.
 
 ``` r
-img1 <- figlab(img1, "Above is a fig.")
+img1 <- fig_lab(img1, "Above is a fig.")
 
-img2 <- figlab(img2, "This is an italic label.", fontface = "italic")
+img2 <- fig_lab(img2, "This is an italic label.", fontface = "italic")
 
-img3 <- figlab(img3, "Below is a fig.", pos = "top")
+img3 <- fig_lab(img3, "Below is a fig.", pos = "top")
 
 design <- "AB
            CC"

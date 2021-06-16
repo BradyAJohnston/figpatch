@@ -28,13 +28,13 @@
 #' img <- fig(image)
 #'
 #' # add the fig label
-#' figlab(
+#' fig_lab(
 #'   img,
 #'   lab = "Below you will find a fig!",
 #'   pos = "top",
 #'   size = 20
 #' )
-figlab <- function(fig,
+fig_lab <- function(fig,
                    lab,
                    pos = "bottom",
                    fontfamily = NULL,

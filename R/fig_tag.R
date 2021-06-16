@@ -33,12 +33,12 @@
 #' img <- fig(image)
 #'
 #' # Add tags on top of the figs
-#' img1 <- figtag(img, "A")
-#' img2 <- figtag(img, "B", pos = "topright")
+#' img1 <- fig_tag(img, "A")
+#' img2 <- fig_tag(img, "B", pos = "topright")
 #'
 #' # assemble the patchwork
 #' patchwork::wrap_plots(img1, img2)
-figtag <-
+fig_tag <-
   function(plot,
            tag,
            pos = "topleft",

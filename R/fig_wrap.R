@@ -6,7 +6,7 @@
 #'   labels them 'A', 'B', etc. "c" labels them 'c', 'd', 'e' etc.
 #' @param prefix Prefix for each tag
 #' @param suffix Suffix for each tag
-#' @param pos Position for label, to be passed to \code{figtag()}.
+#' @param pos Position for label, to be passed to \code{fig_tag()}.
 #' @param colour Colour for each tag
 #' @param alpha Alpha for each tag
 #' @param hjust hjust for each tag
@@ -45,14 +45,14 @@
 #' figs <- lapply(1:9, function(x) img)
 #'
 #' # wrap the figs
-#' figwrap(figs)
+#' fig_wrap(figs)
 #'
 #' # Wrap the figs and auto-tag
-#' figwrap(figs, tag = "A", suffix = ")")
+#' fig_wrap(figs, tag = "A", suffix = ")")
 #'
 #' # Wrap figs, auto-tag and adds border.
-#' figwrap(figs, tag = 1, prefix = "(", suffix = ")", b_col = "black")
-figwrap <- function(figs,
+#' fig_wrap(figs, tag = 1, prefix = "(", suffix = ")", b_col = "black")
+fig_wrap <- function(figs,
                     tag = NULL,
                     prefix = NULL,
                     suffix = NULL,
@@ -107,7 +107,7 @@ figwrap <- function(figs,
     if (is.null(tags)) {
       fig <- figs[[x]]
     } else {
-      fig <- figtag(
+      fig <- fig_tag(
         plot = figs[[x]],
         tag = tags[x],
         pos = pos,
