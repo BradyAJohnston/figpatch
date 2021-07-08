@@ -12,7 +12,7 @@
 #' @param b_size Size of the border line.
 #' @param b_margin Margin around the fig. Use \code{ggplot2::margin()}
 #'
-#' @return ggplot2 plot with external figure.
+#' @return \code{\{ggplot2\}} object
 #' @export
 #'
 #' @examples

@@ -8,7 +8,7 @@ Authors@R:
            role = c("aut", "cre"),
            email = "brady.johnston@me.com",
            comment = c(ORCID = "0000-0001-6301-2269"))
-Description: This package helps to include extenral figures into an assembled 
+Description: For including external figures into an assembled 
     {patchwork}. This enables the creation of more complex figures that include 
     images alongside plots. 
 License: MIT + file LICENSE
@@ -23,5 +23,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Suggests: 
+    spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Language: en-US

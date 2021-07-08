@@ -13,7 +13,7 @@
 #' @param angle Angle of the label text.
 #' @param lineheight Lineheight of the label text.
 #'
-#' @return
+#' @return \code{\{ggplot2\}} object
 #' @export
 #'
 #' @examples

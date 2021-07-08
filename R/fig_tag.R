@@ -15,7 +15,7 @@
 #' @param y_nudge Minor adjustments to the y position in relative plot
 #'   coordinates (0 being the bottom, 1 being the top).
 #'
-#' @return ggplot2 fig with label added.
+#' @return \code{\{ggplot2\} object}
 #' @export
 #'
 #' @examples

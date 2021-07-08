@@ -47,7 +47,7 @@ coordinates (0 being the bottom, 1 being the top).}
 \item{fontfamily}{Fontfamily of plot label.}
 }
 \value{
-ggplot2 fig with label added.
+\code{\{ggplot2\} object}
 }
 \description{
 Add tags and a caption to a fig.

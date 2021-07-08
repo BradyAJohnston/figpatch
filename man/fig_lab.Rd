@@ -45,7 +45,7 @@ fig_lab(
 \item{margin}{Margin around the label text. Use \code{ggplot2::margin()}}
 }
 \value{
-
+\code{\{ggplot2\}} object
 }
 \description{
 Add Label to a Fig

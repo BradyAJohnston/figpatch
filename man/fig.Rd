@@ -29,7 +29,7 @@ to be resized by patchwork.}
 \item{b_margin}{Margin around the fig. Use \code{ggplot2::margin()}}
 }
 \value{
-ggplot2 plot with external figure.
+\code{\{ggplot2\}} object
 }
 \description{
 Read image and convert to ggplot object, for use with other ggplot objects
