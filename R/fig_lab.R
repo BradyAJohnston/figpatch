@@ -35,17 +35,17 @@
 #'   size = 20
 #' )
 fig_lab <- function(fig,
-                   lab,
-                   pos = "bottom",
-                   fontfamily = NULL,
-                   fontface = NULL,
-                   colour = NULL,
-                   size = NULL,
-                   lineheight = NULL,
-                   hjust = NULL,
-                   vjust = NULL,
-                   angle = NULL,
-                   margin = ggplot2::margin(4, 4, 4, 4)) {
+                    lab,
+                    pos = "bottom",
+                    fontfamily = NULL,
+                    fontface = NULL,
+                    colour = NULL,
+                    size = NULL,
+                    lineheight = NULL,
+                    hjust = NULL,
+                    vjust = NULL,
+                    angle = NULL,
+                    margin = ggplot2::margin(4, 4, 4, 4)) {
   if (pos == "bottom") {
     fig +
       ggplot2::labs(
