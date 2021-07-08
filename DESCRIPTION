@@ -1,7 +1,7 @@
 Package: figpatch
 Title: Easily Arrange External Figures with Patchwork Alongside ggplot2
     Figures
-Version: 0.0.1.0000
+Version: 0.1.0
 Authors@R: 
     person(given = "Brady",
            family = "Johnston",
