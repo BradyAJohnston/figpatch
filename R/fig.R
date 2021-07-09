@@ -11,6 +11,8 @@
 #' @param b_col Colour of the border line.
 #' @param b_size Size of the border line.
 #' @param b_margin Margin around the fig. Use \code{ggplot2::margin()}
+#' @param link_dim Logical, whether to lock the dimensions & aspect.ratio of the
+#'   aligned plots to that of this fig.
 #'
 #' @return \code{\{ggplot2\}} object
 #' @export
@@ -30,6 +32,7 @@
 fig <-
   function(path,
            aspect.ratio = "default",
+           link_dim = TRUE,
            b_col = NULL,
            b_size = 1,
            b_pos = "offset",
@@ -49,6 +52,8 @@ fig <-
     # extract image dimensions
     x_dim <- magick::image_info(img)$width
     y_dim <- magick::image_info(img)$height
+    
+    max_dim <- max(x_dim, y_dim)
 
     # Set aspect.ratio based on image dimensions or supplied values
     if (aspect.ratio == "default") {
@@ -58,20 +63,38 @@ fig <-
     } else if (!is.numeric(aspect.ratio)) {
       stop("aspect.ratio must be either 'default', 'free', or a valid numeric number.")
     }
+    
 
-
-    # create actual fig
-    fig <- ggplot2::ggplot() +
-      ggplot2::annotation_custom(grid::rasterGrob(
-        image = img,
-        interpolate = TRUE,
-        width = ggplot2::unit(1, "npc"),
-        height = ggplot2::unit(1, "npc")
-      )) +
-      ggplot2::theme(
-        aspect.ratio = aspect.ratio,
-        plot.margin = b_margin
-      )
+    if (link_dim) {
+      # create actual fig
+      fig <- ggplot2::ggplot() +
+        ggplot2::annotation_custom(grid::rasterGrob(
+          image = img,
+          interpolate = TRUE,
+          width = ggplot2::unit(1, "npc"),
+          height = ggplot2::unit(1, "npc")
+        )) +
+        theme_void() +
+        ggplot2::theme(
+          aspect.ratio = aspect.ratio,
+          plot.margin = b_margin
+        )
+    } else (
+      # create actual fig
+      fig <- ggplot2::ggplot() +
+        ggplot2::annotation_custom(grid::rasterGrob(
+          image = img,
+          interpolate = TRUE,
+          width = ggplot2::unit(x_dim / max_dim, "snpc"),
+          height = ggplot2::unit(y_dim / max_dim, "snpc")
+        )) +
+        theme_void() +
+        ggplot2::theme(
+          plot.margin = b_margin
+        )
+      
+    )
+    
 
     # Add a border to the fig. Border can be offset (expand from the outside
     # of the fig, or inset and expand into the centre of the fig, partially
