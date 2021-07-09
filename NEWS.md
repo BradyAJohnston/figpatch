@@ -1,3 +1,5 @@
+# figpatch (development version)
+
 # figpatch 0.1.0.1
 * downres fig.png and delete old unused manual files to reduce the install size
 *
