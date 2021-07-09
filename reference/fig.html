@@ -73,7 +73,7 @@ when assembling with the {patchwork} package. Can also specify a border." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">figpatch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.2</span>
       </span>
     </div>
 
@@ -125,6 +125,7 @@ when assembling with the <code>{patchwork}</code> package. Can also specify a bo
     <pre class="usage"><span class='fu'>fig</span><span class='op'>(</span>
   <span class='va'>path</span>,
   aspect.ratio <span class='op'>=</span> <span class='st'>"default"</span>,
+  link_dim <span class='op'>=</span> <span class='cn'>TRUE</span>,
   b_col <span class='op'>=</span> <span class='cn'>NULL</span>,
   b_size <span class='op'>=</span> <span class='fl'>1</span>,
   b_pos <span class='op'>=</span> <span class='st'>"offset"</span>,
@@ -142,6 +143,11 @@ when assembling with the <code>{patchwork}</code> package. Can also specify a bo
       <th>aspect.ratio</th>
       <td><p>Manually override the image's aspect ratio or set "free" to allow fig
 to be resized by patchwork.</p></td>
+    </tr>
+    <tr>
+      <th>link_dim</th>
+      <td><p>Logical, whether to lock the dimensions &amp; aspect.ratio of the
+aligned plots to that of this fig.</p></td>
     </tr>
     <tr>
       <th>b_col</th>
