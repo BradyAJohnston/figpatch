@@ -1,8 +1,11 @@
-# figpatch (development version)
+# figpatch 0.1.1
+
+* fixed problem with `.png` showing gray border (was not previously removing all
+`theme` elements)
 
 # figpatch 0.1.0.1
+
 * downres fig.png and delete old unused manual files to reduce the install size
-*
 
 # figpatch 0.1.0
 
