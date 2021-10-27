@@ -74,7 +74,7 @@ fig <-
           width = ggplot2::unit(1, "npc"),
           height = ggplot2::unit(1, "npc")
         )) +
-        theme_void() +
+        ggplot2::theme_void() +
         ggplot2::theme(
           aspect.ratio = aspect.ratio,
           plot.margin = b_margin
@@ -88,7 +88,7 @@ fig <-
           width = ggplot2::unit(x_dim / max_dim, "snpc"),
           height = ggplot2::unit(y_dim / max_dim, "snpc")
         )) +
-        theme_void() +
+        ggplot2::theme_void() +
         ggplot2::theme(
           plot.margin = b_margin
         )
