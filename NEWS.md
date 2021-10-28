@@ -1,7 +1,7 @@
 # figpatch 0.1.1
 
 * fixed problem with `.png` showing gray border (was not previously removing all
-`theme` elements)
+ `panel.background` parts of the `theme` elements)
 
 # figpatch 0.1.0.1
 
