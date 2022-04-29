@@ -17,8 +17,8 @@ fig(
 \arguments{
 \item{path}{Path to image file.}
 
-\item{aspect.ratio}{Manually override the image's aspect ratio or set "free" to allow fig
-to be resized by patchwork.}
+\item{aspect.ratio}{Manually override the image's aspect ratio or set "free"
+to allow fig to be resized by patchwork.}
 
 \item{link_dim}{Logical, whether to lock the dimensions & aspect.ratio of the
 aligned plots to that of this fig.}
@@ -37,7 +37,8 @@ aligned plots to that of this fig.}
 }
 \description{
 Read image and convert to ggplot object, for use with other ggplot objects
-when assembling with the \code{{patchwork}} package. Can also specify a border.
+when assembling with the \code{{patchwork}} package. Can also specify a
+border.
 }
 \examples{
 

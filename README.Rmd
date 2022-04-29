@@ -66,8 +66,7 @@ plt <- ggplot(mtcars) +
   aes(mpg, cyl) + 
   geom_point()
 
-pat <- patchwork::wrap_plots(img, plt, plt, img)
-pat
+wrap_plots(img, plt, plt, img)
 ```
 
 The `aspect.ratio` of the figs is set to the dimensions of the image, but the
@@ -84,7 +83,7 @@ If for some reason you want your fig to also resize (and thus distort your
 image) then you can specify a particular `aspect.ratio` or let it _be free!_
 
 ```{r}
-free_fig <- fig("inst/extdata/fig.png", aspect.ratio = "free")
+free_fig <- fig(image_path, aspect.ratio = "free")
 
 wrap_plots(free_fig, plt, ncol = 1)
 ```
@@ -95,7 +94,8 @@ _Elegant._
 Patchwork already provides support for easy tagging of sub-plots and sub-figures
 using `plot_annotation()`.
 ```{r}
-pat + plot_annotation(tag_levels = "A")
+wrap_plots(img, plt, plt, img) + 
+  plot_annotation(tag_levels = "A")
 ```
 
 For a lot of figures that include images, tags should be placed on top of the images themselves.
@@ -113,6 +113,43 @@ knitr::opts_chunk$set(fig.height = 2, fig.width = 7)
 ```{r fig.height=2, fig.width=7}
 patchwork::wrap_plots(img, img, img, nrow = 1)
 ```
+
+### Scaling the Figs
+
+If multiple figs have differing dimensions, but but should be scaled the same, you can use `fig_scale()` to scale them all to the maximum width and height of all of the included figs.
+
+#### Without scaling
+```{r}
+fl <- image_path <- system.file("extdata",
+                                package = "figpatch",
+                                mustWork = TRUE) %>%
+  list.files(pattern = "png",
+             full.names = TRUE)
+
+fl %>% 
+  lapply(fig) %>% 
+  fig_wrap(ncol = 3)
+```
+
+#### With Scaling
+```{r}
+fl %>% 
+  lapply(fig) %>% 
+  fig_scale() %>% 
+  fig_wrap(ncol = 3)
+```
+
+The scaling is based on the number of pixels, so while the two chemical structures are now properly scaled, the fig has been reduced significantly. 
+
+We can scale them independently to keep the third fig bigger.
+
+```{r}
+scaled_strctures <- lapply(fl[1:2], fig) %>% 
+  fig_scale()
+
+fig_wrap(c(scaled_strctures, list(fig(fl[3]))))
+```
+
 
 ### {patchwork} tagging the figs
 ```{r}
