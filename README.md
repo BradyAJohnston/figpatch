@@ -7,8 +7,6 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Codecov test
-coverage](https://codecov.io/gh/BradyAJohnston/figpatch/branch/master/graph/badge.svg)](https://codecov.io/gh/BradyAJohnston/figpatch?branch=master)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/figpatch)](https://CRAN.R-project.org/package=figpatch)
 <!-- badges: end -->
