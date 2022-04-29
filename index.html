@@ -23,6 +23,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -35,18 +37,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">figpatch</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -56,7 +52,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/BradyAJohnston/figpatch/">
+  <a href="https://github.com/BradyAJohnston/figpatch/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -73,33 +69,38 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="figpatch" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#figpatch" class="anchor"></a>figpatch</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="figpatch">figpatch<a class="anchor" aria-label="anchor" href="#figpatch"></a>
+</h1></div>
 <!-- badges: start -->
 
-<p>The goal of figpatch is to create an easy way to incorporate external figures and images into figures assembled with <a href="https://patchwork.data-imaginist.com/">{patchwork}</a>.</p>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of figpatch from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<p>The goal of figpatch is to create an easy way to incorporate external
+figures and images into figures assembled with <a href="https://patchwork.data-imaginist.com/" class="external-link">{patchwork}</a>.</p>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
+<p>You can install the released version of figpatch from <a href="https://CRAN.R-project.org" class="external-link">CRAN</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"figpatch"</span><span class="op">)</span></code></pre></div>
-<p>Install the development version from <a href="https://github.com/">GitHub</a> with:</p>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"figpatch"</span><span class="op">)</span></code></pre></div>
+<p>Install the development version from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"BradyAJohnston/figpatch"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"BradyAJohnston/figpatch"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
-<h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<div class="section level2">
+<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+</h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/BradyAJohnston/figpatch">figpatch</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></code></pre></div>
-<p>To use images inside of a patchwork object, they need to be converted to a <code>{ggplot}</code> object via <code><a href="reference/fig.html">fig()</a></code>. Once converted, you can assemble the <a href="https://patchwork.data-imaginist.com">patchwork</a> as you would otherwise with <code>+ / - * &amp;</code> or <code><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots()</a></code>.</p>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/BradyAJohnston/figpatch" class="external-link">figpatch</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></code></pre></div>
+<p>To use images inside of a patchwork object, they need to be converted
+to a <code>{ggplot}</code> object via <code><a href="reference/fig.html">fig()</a></code>. Once
+converted, you can assemble the <a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a> as you would
+otherwise with <code>+ / - * &amp;</code> or
+<code><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">image_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span><span class="op">(</span>
+<code class="sourceCode R"><span class="va">image_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span>
   <span class="st">"extdata"</span>, 
   <span class="st">"fig.png"</span>, 
   package <span class="op">=</span> <span class="st">"figpatch"</span>, 
@@ -107,92 +108,153 @@
 
 <span class="va">img</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig.html">fig</a></span><span class="op">(</span><span class="va">image_path</span><span class="op">)</span>
 
-<span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">cyl</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">plt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">mtcars</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">mpg</span>, <span class="va">cyl</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="va">pat</span> <span class="op">&lt;-</span> <span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">plt</span>, <span class="va">plt</span>, <span class="va">img</span><span class="op">)</span>
-<span class="va">pat</span></code></pre></div>
+<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">plt</span>, <span class="va">plt</span>, <span class="va">img</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-figpatch-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>The <code>aspect.ratio</code> of the figs is set to the dimensions of the image, but the plots can still resize as you would expect. For each plot that aligns with a fig, it’s dimensions will match that of the fig (as above). If however it only aligns on one axis, then the other is free to resize to fill up the total image space (as below).</p>
+<p>The <code>aspect.ratio</code> of the figs is set to the dimensions of
+the image, but the plots can still resize as you would expect. For each
+plot that aligns with a fig, it’s dimensions will match that of the fig
+(as above). If however it only aligns on one axis, then the other is
+free to resize to fill up the total image space (as below).</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">plt</span>, <span class="va">img</span>, <span class="va">plt</span>, <span class="va">img</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">plt</span>, <span class="va">img</span>, <span class="va">plt</span>, <span class="va">img</span>, ncol <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>If for some reason you want your fig to also resize (and thus distort your image) then you can specify a particular <code>aspect.ratio</code> or let it <em>be free!</em></p>
+<p>If for some reason you want your fig to also resize (and thus distort
+your image) then you can specify a particular <code>aspect.ratio</code>
+or let it <em>be free!</em></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">free_fig</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig.html">fig</a></span><span class="op">(</span><span class="st">"inst/extdata/fig.png"</span>, aspect.ratio <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span>
+<code class="sourceCode R"><span class="va">free_fig</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig.html">fig</a></span><span class="op">(</span><span class="va">image_path</span>, aspect.ratio <span class="op">=</span> <span class="st">"free"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">free_fig</span>, <span class="va">plt</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">free_fig</span>, <span class="va">plt</span>, ncol <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p><em>Elegant.</em></p>
-<div id="tagging" class="section level3">
-<h3 class="hasAnchor">
-<a href="#tagging" class="anchor"></a>Tagging</h3>
-<p>Patchwork already provides support for easy tagging of sub-plots and sub-figures using <code><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation()</a></code>.</p>
+<div class="section level3">
+<h3 id="tagging">Tagging<a class="anchor" aria-label="anchor" href="#tagging"></a>
+</h3>
+<p>Patchwork already provides support for easy tagging of sub-plots and
+sub-figures using <code><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html" class="external-link">plot_annotation()</a></code>.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pat</span> <span class="op">+</span> <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation</a></span><span class="op">(</span>tag_levels <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">plt</span>, <span class="va">plt</span>, <span class="va">img</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html" class="external-link">plot_annotation</a></span><span class="op">(</span>tag_levels <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>For a lot of figures that include images, tags should be placed on top of the images themselves. Tagging in {patchwork} currently utilises the ggplot <code>tag</code> option from <code><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggplot2::labs(tag = ...)</a></code> but which currently <a href="https://github.com/tidyverse/ggplot2/issues/4297">doesn’t support tagging inside plot borders.</a></p>
+<p>For a lot of figures that include images, tags should be placed on
+top of the images themselves. Tagging in {patchwork} currently utilises
+the ggplot <code>tag</code> option from
+<code>ggplot2::labs(tag = ...)</code> but which currently <a href="https://github.com/tidyverse/ggplot2/issues/4297" class="external-link">doesn’t support
+tagging inside plot borders.</a></p>
 <p>Lets see how it plays out.</p>
-<div id="the-assembled-figs" class="section level4">
-<h4 class="hasAnchor">
-<a href="#the-assembled-figs" class="anchor"></a>The assembled figs</h4>
+<div class="section level4">
+<h4 id="the-assembled-figs">The assembled figs<a class="anchor" aria-label="anchor" href="#the-assembled-figs"></a>
+</h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>fig.height <span class="op">=</span> <span class="fl">2</span>, fig.width <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html" class="external-link">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>fig.height <span class="op">=</span> <span class="fl">2</span>, fig.width <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">img</span>, <span class="va">img</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">img</span>, <span class="va">img</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="patchwork-tagging-the-figs" class="section level3">
-<h3 class="hasAnchor">
-<a href="#patchwork-tagging-the-figs" class="anchor"></a>{patchwork} tagging the figs</h3>
+<div class="section level3">
+<h3 id="scaling-the-figs">Scaling the Figs<a class="anchor" aria-label="anchor" href="#scaling-the-figs"></a>
+</h3>
+<p>If multiple figs have differing dimensions, but but should be scaled
+the same, you can use <code><a href="reference/fig_scale.html">fig_scale()</a></code> to scale them all to the
+maximum width and height of all of the included figs.</p>
+<div class="section level4">
+<h4 id="without-scaling">Without scaling<a class="anchor" aria-label="anchor" href="#without-scaling"></a>
+</h4>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">img</span>, <span class="va">img</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html">plot_annotation</a></span><span class="op">(</span>tag_levels <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="va">fl</span> <span class="op">&lt;-</span> <span class="va">image_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>,
+                                package <span class="op">=</span> <span class="st">"figpatch"</span>,
+                                mustWork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span>
+  <span class="fu"><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"png"</span>,
+             full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+
+<span class="va">fl</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">fig</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/fig_wrap.html">fig_wrap</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
-<div id="figpatch-tagging-the-figs" class="section level3">
-<h3 class="hasAnchor">
-<a href="#figpatch-tagging-the-figs" class="anchor"></a>{figpatch} tagging the figs</h3>
-<p>To add internal tags to the figs, use the <code><a href="reference/fig_tag.html">fig_tag()</a></code> function. Assembling with {patchwork} can continue as normal.</p>
+<div class="section level4">
+<h4 id="with-scaling">With Scaling<a class="anchor" aria-label="anchor" href="#with-scaling"></a>
+</h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">fl</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">fig</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/fig_scale.html">fig_scale</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/fig_wrap.html">fig_wrap</a></span><span class="op">(</span>ncol <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p>The scaling is based on the number of pixels, so while the two
+chemical structures are now properly scaled, the fig has been reduced
+significantly.</p>
+<p>We can scale them independently to keep the third fig bigger.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">scaled_strctures</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="va">fl</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span>, <span class="va">fig</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="reference/fig_scale.html">fig_scale</a></span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu"><a href="reference/fig_wrap.html">fig_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">scaled_strctures</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fu"><a href="reference/fig.html">fig</a></span><span class="op">(</span><span class="va">fl</span><span class="op">[</span><span class="fl">3</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-9-1.png" width="90%" style="display: block; margin: auto;"></p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="patchwork-tagging-the-figs">{patchwork} tagging the figs<a class="anchor" aria-label="anchor" href="#patchwork-tagging-the-figs"></a>
+</h3>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">img</span>, <span class="va">img</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">+</span> 
+  <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_annotation.html" class="external-link">plot_annotation</a></span><span class="op">(</span>tag_levels <span class="op">=</span> <span class="st">"A"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-10-1.png" width="90%" style="display: block; margin: auto;"></p>
+</div>
+<div class="section level3">
+<h3 id="figpatch-tagging-the-figs">{figpatch} tagging the figs<a class="anchor" aria-label="anchor" href="#figpatch-tagging-the-figs"></a>
+</h3>
+<p>To add internal tags to the figs, use the <code><a href="reference/fig_tag.html">fig_tag()</a></code>
+function. Assembling with {patchwork} can continue as normal.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">img1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"A"</span><span class="op">)</span>
 <span class="va">img2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"(B)"</span><span class="op">)</span>
 <span class="va">img3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"misc"</span><span class="op">)</span>
 
-<span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">img1</span>, <span class="va">img2</span>, <span class="va">img3</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>A number of default positions can be supplied to <code><a href="reference/fig_tag.html">fig_tag(pos = ...)</a></code> or a custom vector which will place the text in <code>npc</code> coordinates (0 to 1 for both <code>x</code> and <code>y</code>) and automatically adjust for the aspect ratio of the fig.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<span class="fu">patchwork</span><span class="fu">::</span><span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img1</span>, <span class="va">img2</span>, <span class="va">img3</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-11-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p>A number of default positions can be supplied to
+<code>fig_tag(pos = ...)</code> or a custom vector which will place the
+text in <code>npc</code> coordinates (0 to 1 for both <code>x</code> and
+<code>y</code>) and automatically adjust for the aspect ratio of the
+fig.</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">img1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"A"</span>, pos <span class="op">=</span> <span class="st">"topright"</span><span class="op">)</span>
 <span class="va">img2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"(B)"</span>, pos <span class="op">=</span> <span class="st">"bottomleft"</span><span class="op">)</span>
-<span class="va">img3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"misc"</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span>
+<span class="va">img3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_tag.html">fig_tag</a></span><span class="op">(</span><span class="va">img</span>, <span class="st">"misc"</span>, pos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.4</span>, <span class="fl">0.9</span><span class="op">)</span><span class="op">)</span>
 
-<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">img1</span>, <span class="va">img2</span>, <span class="va">img3</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-9-1.png" width="90%" style="display: block; margin: auto;"></p>
+<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img1</span>, <span class="va">img2</span>, <span class="va">img3</span>, nrow <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-12-1.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 </div>
-<div id="fig_wrap" class="section level2">
-<h2 class="hasAnchor">
-<a href="#fig_wrap" class="anchor"></a><code>fig_wrap()</code>
+<div class="section level2">
+<h2 id="fig_wrap">
+<code>fig_wrap()</code><a class="anchor" aria-label="anchor" href="#fig_wrap"></a>
 </h2>
-<p>To quickly label and wrap multiple figures, use <code><a href="reference/fig_wrap.html">fig_wrap()</a></code></p>
-<p>To add borders around individual figures, use <code>b_*</code> options inside of <code><a href="reference/fig_wrap.html">fig_wrap()</a></code> or specify them individually with <code><a href="reference/fig.html">fig()</a></code>.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<p>To quickly label and wrap multiple figures, use
+<code><a href="reference/fig_wrap.html">fig_wrap()</a></code></p>
+<p>To add borders around individual figures, use <code>b_*</code>
+options inside of <code><a href="reference/fig_wrap.html">fig_wrap()</a></code> or specify them individually
+with <code><a href="reference/fig.html">fig()</a></code>.</p>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/fig_wrap.html">fig_wrap</a></span><span class="op">(</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">img</span>, <span class="va">img</span><span class="op">)</span>,
+  <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">img</span>, <span class="va">img</span>, <span class="va">img</span><span class="op">)</span>,
   <span class="st">"A"</span>,
   prefix <span class="op">=</span> <span class="st">"("</span>,
   suffix <span class="op">=</span> <span class="st">")"</span>,
   b_col <span class="op">=</span> <span class="st">"black"</span>
 <span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-10-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-unnamed-chunk-13-1.png" width="90%" style="display: block; margin: auto;"></p>
 <p>Assembling lots of figures.</p>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>fig.height <span class="op">=</span> <span class="fl">5</span>, fig.width <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">figs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">img</span><span class="op">)</span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html" class="external-link">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>fig.height <span class="op">=</span> <span class="fl">5</span>, fig.width <span class="op">=</span> <span class="fl">7</span><span class="op">)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">figs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">lapply</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">img</span><span class="op">)</span>
 
 <span class="fu"><a href="reference/fig_wrap.html">fig_wrap</a></span><span class="op">(</span>
   <span class="va">figs</span>,
@@ -202,9 +264,10 @@
   b_col <span class="op">=</span> <span class="st">"gray20"</span>,
   b_size <span class="op">=</span> <span class="fl">2</span>
 <span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-12-1.png" width="90%" style="display: block; margin: auto;"></p>
-<p>Adjust the padding around plots with <code>b_margins</code> and change the unit used with <code>b_unit</code>.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<p><img src="reference/figures/README-unnamed-chunk-15-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p>Adjust the padding around plots with <code>b_margins</code> and
+change the unit used with <code>b_unit</code>.</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/fig_wrap.html">fig_wrap</a></span><span class="op">(</span>
   <span class="va">figs</span>,
   nrow <span class="op">=</span> <span class="fl">3</span>,
@@ -212,15 +275,19 @@
   suffix <span class="op">=</span> <span class="st">")"</span>,
   b_col <span class="op">=</span> <span class="st">"gray20"</span>,
   b_size <span class="op">=</span> <span class="fl">2</span>, 
-  b_margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">margin</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">8</span>, <span class="fl">8</span>, <span class="fl">8</span><span class="op">)</span>
+  b_margin <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">margin</a></span><span class="op">(</span><span class="fl">8</span>, <span class="fl">8</span>, <span class="fl">8</span>, <span class="fl">8</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-13-1.png" width="90%" style="display: block; margin: auto;"></p>
+<p><img src="reference/figures/README-unnamed-chunk-16-1.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
-<div id="adding-specific-sub-plot-text" class="section level2">
-<h2 class="hasAnchor">
-<a href="#adding-specific-sub-plot-text" class="anchor"></a>Adding specific sub-plot text</h2>
-<p>You can add labels to the text using the <code><a href="reference/fig_lab.html">fig_lab()</a></code> function. Some customisations are available. At the end of the day, a <code><a href="reference/fig.html">fig()</a></code> is just a <code>ggplot</code> object, and the labels are just the axis titles (x or y). You can add your own <code><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme()</a></code> elements to customise further.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="section level2">
+<h2 id="adding-specific-sub-plot-text">Adding specific sub-plot text<a class="anchor" aria-label="anchor" href="#adding-specific-sub-plot-text"></a>
+</h2>
+<p>You can add labels to the text using the <code><a href="reference/fig_lab.html">fig_lab()</a></code>
+function. Some customisations are available. At the end of the day, a
+<code><a href="reference/fig.html">fig()</a></code> is just a <code>ggplot</code> object, and the labels
+are just the axis titles (x or y). You can add your own
+<code><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme()</a></code> elements to customise further.</p>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">img1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_lab.html">fig_lab</a></span><span class="op">(</span><span class="va">img1</span>, <span class="st">"Above is a fig."</span><span class="op">)</span>
 
 <span class="va">img2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fig_lab.html">fig_lab</a></span><span class="op">(</span><span class="va">img2</span>, <span class="st">"This is an italic label."</span>, fontface <span class="op">=</span> <span class="st">"italic"</span><span class="op">)</span>
@@ -230,54 +297,67 @@
 <span class="va">design</span> <span class="op">&lt;-</span> <span class="st">"AB
            CC"</span>
 
-<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html">wrap_plots</a></span><span class="op">(</span><span class="va">img1</span>, <span class="va">img2</span>, <span class="va">img3</span>, design <span class="op">=</span> <span class="va">design</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-14-1.png" width="90%" style="display: block; margin: auto;"></p>
+<span class="fu"><a href="https://patchwork.data-imaginist.com/reference/wrap_plots.html" class="external-link">wrap_plots</a></span><span class="op">(</span><span class="va">img1</span>, <span class="va">img2</span>, <span class="va">img3</span>, design <span class="op">=</span> <span class="va">design</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-17-1.png" width="90%" style="display: block; margin: auto;"></p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/BradyAJohnston/figpatch/">https://​github.com/​BradyAJohnston/​figpatch/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/BradyAJohnston/figpatch/issues">https://​github.com/​BradyAJohnston/​figpatch/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Brady Johnston <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6301-2269" target="orcid.widget" aria-label="ORCID"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="https://cloud.r-project.org/package=figpatch" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/BradyAJohnston/figpatch/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/BradyAJohnston/figpatch/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://codecov.io/gh/BradyAJohnston/figpatch?branch=master"><img src="https://codecov.io/gh/BradyAJohnston/figpatch/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
-<li><a href="https://CRAN.R-project.org/package=figpatch"><img src="https://www.r-pkg.org/badges/version/figpatch" alt="CRAN status"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing figpatch</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Brady Johnston <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6301-2269" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
+<li><a href="https://codecov.io/gh/BradyAJohnston/figpatch?branch=master" class="external-link"><img src="https://codecov.io/gh/BradyAJohnston/figpatch/branch/master/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://CRAN.R-project.org/package=figpatch" class="external-link"><img src="https://www.r-pkg.org/badges/version/figpatch" alt="CRAN status"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Brady Johnston.</p>
+  <p></p>
+<p>Developed by Brady Johnston.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a>
+2.0.2.</p>
 </div>
 
       </footer>
@@ -285,6 +365,8 @@
 
   
 
+
+  
 
   </body>
 </html>
