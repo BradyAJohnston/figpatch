@@ -9,6 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/figpatch)](https://CRAN.R-project.org/package=figpatch)
+[![R-CMD-check](https://github.com/BradyAJohnston/figpatch/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/BradyAJohnston/figpatch/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of figpatch is to create an easy way to incorporate external
@@ -44,6 +45,7 @@ a `{ggplot}` object via `fig()`. Once converted, you can assemble the
 `{patchwork}` as you would otherwise with `+ / - * &` or `wrap_plots()`.
 
 ``` r
+
 image_path <- system.file(
   "extdata", 
   "fig.png", 
