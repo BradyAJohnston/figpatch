@@ -27,7 +27,7 @@ and images into figures assembled with
 [{patchwork}](https://patchwork.data-imaginist.com/).
 
 ## Installation
-
+ 
 You can install the released version of figpatch from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
