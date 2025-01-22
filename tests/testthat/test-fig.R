@@ -12,4 +12,10 @@ test_that("Test Reading", {
       system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
     )
   })
+  expect_silent({
+    # read in without trouble
+    temp <- magick::image_read(
+      system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
+    )
+  })
 })
