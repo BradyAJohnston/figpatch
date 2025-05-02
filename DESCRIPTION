@@ -12,6 +12,10 @@ Description: For including external figures into an assembled
     {patchwork}. This enables the creation of more complex figures that include 
     images alongside plots. 
 License: MIT + file LICENSE
+Encoding: UTF-8
+Language: en-US
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
 URL: https://github.com/BradyAJohnston/figpatch
 BugReports: https://github.com/BradyAJohnston/figpatch/issues
 Imports: 
@@ -20,10 +24,6 @@ Imports:
     magrittr,
     methods,
     patchwork
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
 Suggests: 
     covr,
     knitr,
@@ -31,4 +31,4 @@ Suggests:
     spelling,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-Language: en-US
+
