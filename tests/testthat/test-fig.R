@@ -1,14 +1,11 @@
-test_that("Test Reading", {
+test_that("fig() throws error on invalid path and works silently on valid image", {
   expect_error(
-    # fail while reading in rubbish link
     fig("brokenlink"),
-    {
-      "No such file or directory"
-    }
+    "No such file or directory"
   )
+  
   expect_silent({
-    # read in without trouble
-    temp <- fig(
+    fig(
       system.file("extdata", "fig.png", package = "figpatch", mustWork = TRUE)
     )
   })
