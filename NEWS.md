@@ -1,3 +1,5 @@
+# figpatch 0.3
+
 # figpatch 0.2
 
 * Added `fig_scale()` to rescale multiple figs that are differently sized.
