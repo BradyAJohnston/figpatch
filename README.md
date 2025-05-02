@@ -19,13 +19,14 @@ figures and images into figures assembled with
 ## Installation
 
 You can install the released version of figpatch from
-[CRAN](https://CRAN.R-project.org) with:
+[CRAN](https://cran.r-project.org/package=figpatch) with:
 
 ``` r
 install.packages("figpatch")
 ```
 
-Install the development version from [GitHub](https://github.com/) with:
+Install the development version from
+[GitHub](https://github.com/BradyAJohnston/figpatch) with:
 
 ``` r
 # install.packages("devtools")
