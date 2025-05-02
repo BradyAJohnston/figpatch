@@ -30,97 +30,87 @@
 #' img <- fig(image)
 #'
 #' img
-fig <-
-  function(path,
-           aspect.ratio = "default",
-           link_dim = TRUE,
-           b_col = NULL,
-           b_size = 1,
-           b_pos = "offset",
-           b_margin = ggplot2::margin(4, 4, 4, 4)) {
-
-    # read in specified image
-    if (grepl(".svg", path)) {
-      warning("Currently .svg will be rasterised in the final plot.")
-      img <- magick::image_read_svg(path)
-    } else if (grepl(".pdf", path)) {
-      warning("Currently .pdf will be rasterised in the final plot.")
-      img <- magick::image_read_pdf(path)
-    } else {
-      img <- magick::image_read(path = path)
-    }
-
-    # extract image dimensions
-    x_dim <- magick::image_info(img)$width
-    y_dim <- magick::image_info(img)$height
-
-    max_dim <- max(x_dim, y_dim)
-
-    # Set aspect.ratio based on image dimensions or supplied values
-    if (aspect.ratio == "default") {
-      aspect.ratio <- y_dim / x_dim
-    } else if (aspect.ratio == "free") {
-      aspect.ratio <- NULL
-    } else if (!is.numeric(aspect.ratio)) {
-      stop("aspect.ratio must be either 'default', 'free', or a valid numeric number.")
-    }
-
-
-    if (link_dim) {
-      # create actual fig
-      fig <- ggplot2::ggplot() +
-        ggplot2::annotation_custom(grid::rasterGrob(
-          image = img,
-          interpolate = TRUE,
-          width = ggplot2::unit(1, "npc"),
-          height = ggplot2::unit(1, "npc")
-        )) +
-        ggplot2::theme_void() +
-        ggplot2::theme(
-          aspect.ratio = aspect.ratio,
-          plot.margin = b_margin
-        )
-    } else {
-      (
-        # create actual fig
-        fig <- ggplot2::ggplot() +
-          ggplot2::annotation_custom(grid::rasterGrob(
-            image = img,
-            interpolate = TRUE,
-            width = ggplot2::unit(x_dim / max_dim, "snpc"),
-            height = ggplot2::unit(y_dim / max_dim, "snpc")
-          )) +
-          ggplot2::theme_void() +
-          ggplot2::theme(
-            plot.margin = b_margin
-          )
-
-      )
-    }
-
-
-    # Add a border to the fig. Border can be offset (expand from the outside
-    # of the fig, or inset and expand into the centre of the fig, partially
-    # covering some of the fig.)
-    fig <- fig_borders(fig, b_col, b_pos, b_size)
-
-    # add on the dimensions of the figure, for later computations
-    fig$fig_data <- list(
-      img = img,
-      aspect.ratio = aspect.ratio,
-      link_dim = link_dim,
-      b_col = b_col,
-      b_size = b_size,
-      b_pos = b_pos,
-      b_margin = b_margin,
-      x_dim = x_dim,
-      y_dim = y_dim
-    )
-
-    # Return the final fig.
-    fig
+fig <- function(path,
+                aspect.ratio = "default",
+                link_dim = TRUE,
+                b_col = NULL,
+                b_size = 1,
+                b_pos = "offset",
+                b_margin = ggplot2::margin(4, 4, 4, 4)) {
+  
+  # check that the file exists
+  if (!file.exists(path)) {
+    stop(sprintf("The file '%s' does not exist. Please provide a valid image path.", path))
   }
-
+  
+  # read in specified image
+  if (grepl("\\.svg$", path, ignore.case = TRUE)) {
+    warning("Currently .svg will be rasterised in the final plot.")
+    img <- magick::image_read_svg(path)
+  } else if (grepl("\\.pdf$", path, ignore.case = TRUE)) {
+    warning("Currently .pdf will be rasterised in the final plot.")
+    img <- magick::image_read_pdf(path)
+  } else {
+    img <- magick::image_read(path = path)
+  }
+  
+  # extract image dimensions
+  x_dim <- magick::image_info(img)$width
+  y_dim <- magick::image_info(img)$height
+  max_dim <- max(x_dim, y_dim)
+  
+  # Set aspect.ratio
+  if (aspect.ratio == "default") {
+    aspect.ratio <- y_dim / x_dim
+  } else if (aspect.ratio == "free") {
+    aspect.ratio <- NULL
+  } else if (!is.numeric(aspect.ratio)) {
+    stop("aspect.ratio must be either 'default', 'free', or a valid numeric number.")
+  }
+  
+  if (link_dim) {
+    fig <- ggplot2::ggplot() +
+      ggplot2::annotation_custom(grid::rasterGrob(
+        image = img,
+        interpolate = TRUE,
+        width = ggplot2::unit(1, "npc"),
+        height = ggplot2::unit(1, "npc")
+      )) +
+      ggplot2::theme_void() +
+      ggplot2::theme(
+        aspect.ratio = aspect.ratio,
+        plot.margin = b_margin
+      )
+  } else {
+    fig <- ggplot2::ggplot() +
+      ggplot2::annotation_custom(grid::rasterGrob(
+        image = img,
+        interpolate = TRUE,
+        width = ggplot2::unit(x_dim / max_dim, "snpc"),
+        height = ggplot2::unit(y_dim / max_dim, "snpc")
+      )) +
+      ggplot2::theme_void() +
+      ggplot2::theme(plot.margin = b_margin)
+  }
+  
+  # Add border
+  fig <- fig_borders(fig, b_col, b_pos, b_size)
+  
+  # attach image data
+  fig$fig_data <- list(
+    img = img,
+    aspect.ratio = aspect.ratio,
+    link_dim = link_dim,
+    b_col = b_col,
+    b_size = b_size,
+    b_pos = b_pos,
+    b_margin = b_margin,
+    x_dim = x_dim,
+    y_dim = y_dim
+  )
+  
+  fig
+}
 
 #' @noRd
 fig_update <-
@@ -214,7 +204,7 @@ fig_update <-
 
     # Return the final fig.
     fig
-  }
+}
 
 #' Scales the Dimensions of Multiple Figs
 #'

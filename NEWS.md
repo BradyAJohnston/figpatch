@@ -1,5 +1,7 @@
 # figpatch 0.3
 
+* Added explicit path validation in `fig()`.
+
 # figpatch 0.2
 
 * Added `fig_scale()` to rescale multiple figs that are differently sized.

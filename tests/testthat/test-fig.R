@@ -1,7 +1,7 @@
 test_that("fig() throws error on invalid path and works silently on valid image", {
   expect_error(
     fig("brokenlink"),
-    "No such file or directory"
+    "The file 'brokenlink' does not exist. Please provide a valid image path."
   )
   
   expect_silent({
